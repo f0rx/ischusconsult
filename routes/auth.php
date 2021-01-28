@@ -16,14 +16,16 @@ Route::domain('admin.' . config('app.site_url'))->name('admin.')->group(function
         ->name('register');
 
     Route::post('/register', [RegisteredUserController::class, 'store'])
-        ->middleware(['auth', 'role:super-admin', 'permission:create']);
+        ->middleware(['auth', 'role:super-admin', 'permission:create'])
+        ->name('register.store');
 
     Route::get('/login', [AuthenticatedSessionController::class, 'create'])
         ->middleware('guest')
         ->name('login');
 
     Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-        ->middleware('guest');
+        ->middleware('guest')
+        ->name('login.store');
 
     Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
         ->middleware('guest')
@@ -58,7 +60,8 @@ Route::domain('admin.' . config('app.site_url'))->name('admin.')->group(function
         ->name('password.confirm');
 
     Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
-        ->middleware('auth');
+        ->middleware('auth')
+        ->name('password.confirm.unlock');
 
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
         ->middleware('auth')
