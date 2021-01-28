@@ -37,7 +37,7 @@
     </head>
     <body class="font-nunito antialiased page-login">
         <!-- Page Content -->
-        <main class="page-content">
+        <main id="app" class="page-content">
             {{ $slot }}
         </main>
 

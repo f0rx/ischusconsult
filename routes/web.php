@@ -5,9 +5,12 @@ use App\Http\Controllers\JobAppliationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [JobAppliationController::class, 'create'])->middleware('guest');
+Route::get('/', [JobAppliationController::class, 'create'])
+    ->middleware('guest');
 
-Route::post('/store', [JobAppliationController::class, 'store'])->middleware('guest');
+Route::post('/store', [JobAppliationController::class, 'store'])
+    ->middleware('guest')
+    ->name('application.store');
 
 Route::prefix('job/applications')->name('application.')->group(function () {
     Route::view('/form', 'welcome')->middleware('guest')->name('/');

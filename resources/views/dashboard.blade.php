@@ -90,7 +90,7 @@
                         <div class="inbox-widget slimscroll">
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="assets/images/avatar2.png" class="img-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="{{ asset('images/avatar2.png') }}" class="img-circle" alt=""></div>
                                     <p class="inbox-item-author">Sandra Smith</p>
                                     <p class="inbox-item-text">Hey! I'm working on your...</p>
                                     <p class="inbox-item-date">13:40 PM</p>
@@ -98,7 +98,7 @@
                             </a>
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="assets/images/avatar3.png" class="img-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="{{ asset('images/avatar3.png') }}" class="img-circle" alt=""></div>
                                     <p class="inbox-item-author">Christopher</p>
                                     <p class="inbox-item-text">I've finished it! See you so...</p>
                                     <p class="inbox-item-date">13:34 PM</p>
@@ -106,7 +106,7 @@
                             </a>
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="assets/images/avatar4.png" class="img-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="{{ asset('images/avatar4.png') }}" class="img-circle" alt=""></div>
                                     <p class="inbox-item-author">Amily Lee</p>
                                     <p class="inbox-item-text">This theme is awesome!</p>
                                     <p class="inbox-item-date">13:17 PM</p>
@@ -114,7 +114,7 @@
                             </a>
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="assets/images/avatar5.png" class="img-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="{{ asset('images/avatar5.png') }}" class="img-circle" alt=""></div>
                                     <p class="inbox-item-author">Nick Doe</p>
                                     <p class="inbox-item-text">Nice to meet you</p>
                                     <p class="inbox-item-date">12:20 PM</p>
@@ -122,7 +122,7 @@
                             </a>
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="assets/images/avatar2.png" class="img-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="{{ asset('images/avatar2.png') }}" class="img-circle" alt=""></div>
                                     <p class="inbox-item-author">Sandra Smith</p>
                                     <p class="inbox-item-text">Hey! I'm working on your...</p>
                                     <p class="inbox-item-date">10:15 AM</p>
@@ -130,7 +130,7 @@
                             </a>
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="assets/images/avatar4.png" class="img-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="{{ asset('images/avatar4.png') }}" class="img-circle" alt=""></div>
                                     <p class="inbox-item-author">Amily Lee</p>
                                     <p class="inbox-item-text">This theme is awesome!</p>
                                     <p class="inbox-item-date">9:56 AM</p>

@@ -43,7 +43,7 @@
         @endauth --}}
 
         <!-- Page Content -->
-        <main class="page-content content-wrap">
+        <main id="app" class="page-content content-wrap">
             @auth
                 @include('layouts.top-nav')
             @endauth
@@ -78,6 +78,7 @@
         <script src="{{ asset('js/plugins/3d-bold-navigation/js/main.js') }}"></script>
         @stack('scripts')
         <!-- Main JS -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

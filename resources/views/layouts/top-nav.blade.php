@@ -31,7 +31,7 @@
                                 <ul class="list-unstyled">
                                     <li>
                                         <a href="#">
-                                            <div class="msg-img"><div class="online on"></div><img class="img-circle" src="assets/images/avatar2.png" alt=""></div>
+                                            <div class="msg-img"><div class="online on"></div><img class="img-circle" src="{{ asset('images/avatar2.png') }}" alt=""></div>
                                             <p class="msg-name">Sandra Smith</p>
                                             <p class="msg-text">Hey ! I'm working on your project</p>
                                             <p class="msg-time">3 minutes ago</p>
@@ -39,7 +39,7 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <div class="msg-img"><div class="online off"></div><img class="img-circle" src="assets/images/avatar4.png" alt=""></div>
+                                            <div class="msg-img"><div class="online off"></div><img class="img-circle" src="{{ asset('images/avatar4.png') }}" alt=""></div>
                                             <p class="msg-name">Amily Lee</p>
                                             <p class="msg-text">Hi David !</p>
                                             <p class="msg-time">8 minutes ago</p>
@@ -47,7 +47,7 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <div class="msg-img"><div class="online off"></div><img class="img-circle" src="assets/images/avatar3.png" alt=""></div>
+                                            <div class="msg-img"><div class="online off"></div><img class="img-circle" src="{{ asset('images/avatar3.png') }}" alt=""></div>
                                             <p class="msg-name">Christopher Palmer</p>
                                             <p class="msg-text">See you soon !</p>
                                             <p class="msg-time">56 minutes ago</p>
@@ -55,7 +55,7 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <div class="msg-img"><div class="online on"></div><img class="img-circle" src="assets/images/avatar5.png" alt=""></div>
+                                            <div class="msg-img"><div class="online on"></div><img class="img-circle" src="{{ asset('images/avatar5.png') }}" alt=""></div>
                                             <p class="msg-name">Nick Doe</p>
                                             <p class="msg-text">Nice to meet you</p>
                                             <p class="msg-time">2 hours ago</p>
@@ -63,7 +63,7 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <div class="msg-img"><div class="online on"></div><img class="img-circle" src="assets/images/avatar2.png" alt=""></div>
+                                            <div class="msg-img"><div class="online on"></div><img class="img-circle" src="{{ asset('images/avatar2.png') }}" alt=""></div>
                                             <p class="msg-name">Sandra Smith</p>
                                             <p class="msg-text">Hey ! I'm working on your project</p>
                                             <p class="msg-time">5 hours ago</p>
@@ -71,7 +71,7 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <div class="msg-img"><div class="online off"></div><img class="img-circle" src="assets/images/avatar4.png" alt=""></div>
+                                            <div class="msg-img"><div class="online off"></div><img class="img-circle" src="{{ asset('images/avatar4.png') }}" alt=""></div>
                                             <p class="msg-name">Amily Lee</p>
                                             <p class="msg-text">Hi David !</p>
                                             <p class="msg-time">9 hours ago</p>

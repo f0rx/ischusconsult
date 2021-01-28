@@ -47,8 +47,9 @@
                                 </div>
                             </div>
 
-                            <form id="wizardForm" method="POST">
+                            <form id="wizardForm" action="{{ route('application.store') }}" method="POST">
                                 @csrf
+
                                 <div class="tab-content">
                                     <x-welcome.tab-content id="personal-details" :is-active="true">
                                         @include('includes.welcome.personal-details')

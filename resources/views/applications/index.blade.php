@@ -24,6 +24,16 @@
             </ol>
         </div>
     </div>
+
+    <toast-success
+        title="{{ session('success-title') ?? $successTitle ?? '' }}"
+        body="{{ session('success-body') ?? $successBody ?? '' }}">
+    </toast-success>
+    <toast-error
+        title="{{ session('error-title') ?? $errorTitle ?? '' }}"
+        body="{{ session('error-body') ?? $errorBody ?? '' }}">
+    </toast-error>
+
     <div id="main-wrapper">
         <div class="row">
             <div class="col-md-12">

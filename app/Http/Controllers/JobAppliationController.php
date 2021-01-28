@@ -13,10 +13,12 @@ class JobAppliationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // dd("Hello world");
         $applications = JobAppliation::all();
+        $request->session()->flash('error-title', 'Task was unsuccessful!');
+        $request->session()->flash('error-body', 'User data was corrupt.');
         return view('applications.index', compact('applications'));
     }
 
