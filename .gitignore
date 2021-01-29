@@ -12,7 +12,8 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 
-//Ignore Server files
+//Ignore Production Server configurations
 php.ini
 error_log
 composer.phar
+public/.htaccess
