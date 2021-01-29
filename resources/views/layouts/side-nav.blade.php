@@ -33,7 +33,7 @@
 
             <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-briefcase"></span><p>Jobs</p><span class="arrow"></span></a>
                 <ul class="sub-menu">
-                    <li><a href="{{ route('application.index') }}">Applications</a></li>
+                    <li><a href="{{ route('admin.application.index') }}">Applications</a></li>
                 </ul>
             </li>
 
