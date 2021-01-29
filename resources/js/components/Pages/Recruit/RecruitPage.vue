@@ -23,10 +23,10 @@
           <form action="#" name="signupForm" autocomplete="off">
             <div class="luna-steps">
               <div class="step step-active" data-step-id="1">
-                <!-- <personal-details></personal-details> -->
+                <personal-details></personal-details>
               </div>
               <div class="step" data-step-id="2">
-                <!-- <personal-details-2></personal-details-2> -->
+                <personal-details-2></personal-details-2>
               </div>
               <div class="step" data-step-id="3">
                 <work-experience></work-experience>

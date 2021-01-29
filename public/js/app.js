@@ -24282,15 +24282,22 @@ var render = function() {
             { attrs: { action: "#", name: "signupForm", autocomplete: "off" } },
             [
               _c("div", { staticClass: "luna-steps" }, [
-                _c("div", {
-                  staticClass: "step step-active",
-                  attrs: { "data-step-id": "1" }
-                }),
+                _c(
+                  "div",
+                  {
+                    staticClass: "step step-active",
+                    attrs: { "data-step-id": "1" }
+                  },
+                  [_c("personal-details")],
+                  1
+                ),
                 _vm._v(" "),
-                _c("div", {
-                  staticClass: "step",
-                  attrs: { "data-step-id": "2" }
-                }),
+                _c(
+                  "div",
+                  { staticClass: "step", attrs: { "data-step-id": "2" } },
+                  [_c("personal-details-2")],
+                  1
+                ),
                 _vm._v(" "),
                 _c(
                   "div",
