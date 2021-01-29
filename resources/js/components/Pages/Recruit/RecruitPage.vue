@@ -20,7 +20,7 @@
               class="step-count"
             ></span>
           </div>
-          <form action="#" name="signupForm" autocomplete="off">
+          <form action="#" name="signupForm">
             <div class="luna-steps">
               <div class="step step-active" data-step-id="1">
                 <personal-details></personal-details>

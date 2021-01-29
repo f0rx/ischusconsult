@@ -19,12 +19,10 @@ class JobApplication extends Model
         'application_id',
         'first_name',
         'last_name',
-        // 'title',
         'email',
         'phone',
         'marital_status',
         'address',
-        // 'address2',
         'city',
         'state',
         'gender',
@@ -34,7 +32,6 @@ class JobApplication extends Model
         'highest_role',
         'total_years_of_xp',
         'summary',
-        'year_of_degree_certificate',
     ];
 
     /**

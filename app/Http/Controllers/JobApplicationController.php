@@ -16,8 +16,8 @@ class JobApplicationController extends Controller
     public function index(Request $request)
     {
         $applications = JobApplication::all();
-        $request->session()->flash('error-title', 'User account created!');
-        $request->session()->flash('error-body', 'Proceed to checkout.');
+        // $request->session()->flash('error-title', 'User account created!');
+        // $request->session()->flash('error-body', 'Proceed to checkout.');
         return view('applications.index', compact('applications'));
     }
 
@@ -50,7 +50,7 @@ class JobApplicationController extends Controller
      */
     public function show(JobApplication $application)
     {
-        return view('applications.show', compact('application'));
+        return view('recruit.index', compact('application'));
     }
 
     /**
@@ -61,7 +61,7 @@ class JobApplicationController extends Controller
      */
     public function edit(JobApplication $application)
     {
-        return view('applications.edit', compact('application'));
+        return view('recruit.index', compact('application'));
     }
 
     /**
