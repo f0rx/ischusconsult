@@ -88,7 +88,7 @@
                                                 </a>
 
                                                 <a type="button" class="btn btn-danger btn-block">
-                                                    <form method="POST" action="{{ route('application.delete', ['id' => $app->application_id]) }}">
+                                                    <form method="POST" action="{{ route('admin.application.delete', ['id' => $app->application_id]) }}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <span class="icon icon-trash" onclick="event.preventDefault();
