@@ -24277,61 +24277,57 @@ var render = function() {
         _c("div", { staticClass: "container-fluid" }, [
           _vm._m(1),
           _vm._v(" "),
-          _c(
-            "form",
-            { attrs: { action: "#", name: "signupForm", autocomplete: "off" } },
-            [
-              _c("div", { staticClass: "luna-steps" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "step step-active",
-                    attrs: { "data-step-id": "1" }
-                  },
-                  [_c("personal-details")],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "step", attrs: { "data-step-id": "2" } },
-                  [_c("personal-details-2")],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "step", attrs: { "data-step-id": "3" } },
-                  [_c("work-experience")],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "step", attrs: { "data-step-id": "4" } },
-                  [_c("contact-information")],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "step", attrs: { "data-step-id": "5" } },
-                  [_c("documents-upload")],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "step step-confirm",
-                    attrs: { "data-step-id": "6" }
-                  },
-                  [_c("finish")],
-                  1
-                )
-              ])
-            ]
-          ),
+          _c("form", { attrs: { action: "#", name: "signupForm" } }, [
+            _c("div", { staticClass: "luna-steps" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "step step-active",
+                  attrs: { "data-step-id": "1" }
+                },
+                [_c("personal-details")],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "step", attrs: { "data-step-id": "2" } },
+                [_c("personal-details-2")],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "step", attrs: { "data-step-id": "3" } },
+                [_c("work-experience")],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "step", attrs: { "data-step-id": "4" } },
+                [_c("contact-information")],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "step", attrs: { "data-step-id": "5" } },
+                [_c("documents-upload")],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "step step-confirm",
+                  attrs: { "data-step-id": "6" }
+                },
+                [_c("finish")],
+                1
+              )
+            ])
+          ]),
           _vm._v(" "),
           _vm._m(2)
         ])
