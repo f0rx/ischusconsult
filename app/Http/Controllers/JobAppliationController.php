@@ -15,7 +15,6 @@ class JobAppliationController extends Controller
      */
     public function index(Request $request)
     {
-        // dd("Hello world");
         $applications = JobAppliation::all();
         $request->session()->flash('error-title', 'Task was unsuccessful!');
         $request->session()->flash('error-body', 'User data was corrupt.');
@@ -29,7 +28,7 @@ class JobAppliationController extends Controller
      */
     public function create()
     {
-        return redirect()->route('application./');
+        return view('welcome');
     }
 
     /**

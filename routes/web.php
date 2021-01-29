@@ -6,44 +6,49 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [JobAppliationController::class, 'create'])
-    ->middleware('guest');
+Route::domain('recruit.' . config('app.site_url'))
+    ->name('application.')
+    ->group(function () {
+        // Route::get('/', function () {
+        //     return redirect()->route('application.hello');
+        // })->name('hello');
 
-Route::post('/store', [JobAppliationController::class, 'store'])
-    ->middleware('guest')
-    ->name('application.store');
+        Route::get('/', [JobAppliationController::class, 'create'])
+            ->middleware('guest')
+            ->name('/');
 
-Route::prefix('job/applications')->name('application.')->group(function () {
-    Route::view('/form', 'welcome')->middleware('guest')->name('/');
+        Route::post('/store', [JobAppliationController::class, 'store'])
+            ->middleware('guest')
+            ->name('store');
 
-    Route::get('/', [JobAppliationController::class, 'index'])
-        ->middleware('auth')
-        ->name('index');
+        Route::get('/listing', [JobAppliationController::class, 'index'])
+            ->middleware('auth')
+            ->name('index');
 
-    Route::get('/{id}', [JobAppliationController::class, 'show'])
-        ->middleware('auth')
-        ->name('show');
+        Route::get('/{id}', [JobAppliationController::class, 'show'])
+            ->middleware('auth')
+            ->name('show');
 
-    Route::get('/{id}/edit', [JobAppliationController::class, 'edit'])
-        ->middleware('guest')
-        ->name('edit');
+        Route::get('/{id}/edit', [JobAppliationController::class, 'edit'])
+            ->middleware('guest')
+            ->name('edit');
 
-    Route::put('/{id}', [JobAppliationController::class, 'update'])
-        ->middleware('guest')
-        ->name('update');
+        Route::put('/{id}', [JobAppliationController::class, 'update'])
+            ->middleware('guest')
+            ->name('update');
 
-    Route::put('/{id}/restore', [JobAppliationController::class, 'restore'])
-        ->middleware(['auth', 'role:super-admin|admin'])
-        ->name('restore');
+        Route::put('/{id}/restore', [JobAppliationController::class, 'restore'])
+            ->middleware(['auth', 'role:super-admin|admin'])
+            ->name('restore');
 
-    Route::delete('/{id}/delete', [JobAppliationController::class, 'delete'])
-        ->middleware(['auth', 'role:super-admin|admin'])
-        ->name('delete');
+        Route::delete('/{id}/delete', [JobAppliationController::class, 'delete'])
+            ->middleware(['auth', 'role:super-admin|admin'])
+            ->name('delete');
 
-    Route::delete('/{id}/destroy', [JobAppliationController::class, 'destroy'])
-        ->middleware(['auth', 'role:super-admin|admin'])
-        ->name('destroy');
-});
+        Route::delete('/{id}/destroy', [JobAppliationController::class, 'destroy'])
+            ->middleware(['auth', 'role:super-admin|admin'])
+            ->name('destroy');
+    });
 
 Route::domain('admin.' . config('app.site_url'))->name('admin.')->group(function () {
     Route::resource('roles', RoleController::class)
@@ -84,4 +89,4 @@ Route::domain('admin.' . config('app.site_url'))->name('admin.')->group(function
     });
 });
 
-require __DIR__ . '/auth.php';
+// require __DIR__ . '/auth.php';
