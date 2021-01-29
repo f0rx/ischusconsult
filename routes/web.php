@@ -14,8 +14,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::domain('recruit.' . config('app.site_url'))
-    ->name('application.')
-    ->group(function () {
+    ->name('application.')->group(function () {
+        
         // Route::get('/', function () {
         //     return redirect()->route('application.hello');
         // })->name('hello');
@@ -59,7 +59,9 @@ Route::domain('recruit.' . config('app.site_url'))
 
 
 
-Route::domain('admin.' . config('app.site_url'))->name('admin.')->group(function () {
+Route::domain('admin.' . config('app.site_url'))
+    ->name('admin.')->group(function () {
+        
     Route::resource('roles', RoleController::class)
         ->middleware('auth');
 
