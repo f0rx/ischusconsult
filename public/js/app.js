@@ -3796,7 +3796,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _Widgets_ContactInformation_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Widgets/ContactInformation.vue */ "./resources/js/components/Pages/Recruit/Widgets/ContactInformation.vue");
 //
 //
 //
@@ -3855,7 +3854,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {//
@@ -3914,6 +3915,60 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {//
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Pages/Recruit/Widgets/Finish.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Pages/Recruit/Widgets/Finish.vue?vue&type=script&lang=js& ***!
@@ -3925,6 +3980,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4289,6 +4387,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -23533,6 +23638,45 @@ component.options.__file = "resources/js/components/Pages/Recruit/Widgets/Contac
 
 /***/ }),
 
+/***/ "./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _DocumentsUpload_vue_vue_type_template_id_482f9722___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DocumentsUpload.vue?vue&type=template&id=482f9722& */ "./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue?vue&type=template&id=482f9722&");
+/* harmony import */ var _DocumentsUpload_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DocumentsUpload.vue?vue&type=script&lang=js& */ "./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _DocumentsUpload_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _DocumentsUpload_vue_vue_type_template_id_482f9722___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DocumentsUpload_vue_vue_type_template_id_482f9722___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Pages/Recruit/Widgets/Finish.vue":
 /*!******************************************************************!*\
   !*** ./resources/js/components/Pages/Recruit/Widgets/Finish.vue ***!
@@ -23805,6 +23949,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsUpload_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DocumentsUpload.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsUpload_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Pages/Recruit/Widgets/Finish.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************!*\
   !*** ./resources/js/components/Pages/Recruit/Widgets/Finish.vue?vue&type=script&lang=js& ***!
@@ -23974,6 +24134,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue?vue&type=template&id=482f9722&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue?vue&type=template&id=482f9722& ***!
+  \**********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsUpload_vue_vue_type_template_id_482f9722___WEBPACK_IMPORTED_MODULE_0__.render,
+/* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsUpload_vue_vue_type_template_id_482f9722___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsUpload_vue_vue_type_template_id_482f9722___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DocumentsUpload.vue?vue&type=template&id=482f9722& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue?vue&type=template&id=482f9722&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Pages/Recruit/Widgets/Finish.vue?vue&type=template&id=ac71874c&":
 /*!*************************************************************************************************!*\
   !*** ./resources/js/components/Pages/Recruit/Widgets/Finish.vue?vue&type=template&id=ac71874c& ***!
@@ -24105,22 +24282,15 @@ var render = function() {
             { attrs: { action: "#", name: "signupForm", autocomplete: "off" } },
             [
               _c("div", { staticClass: "luna-steps" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "step step-active",
-                    attrs: { "data-step-id": "1" }
-                  },
-                  [_c("personal-details")],
-                  1
-                ),
+                _c("div", {
+                  staticClass: "step step-active",
+                  attrs: { "data-step-id": "1" }
+                }),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "step", attrs: { "data-step-id": "2" } },
-                  [_c("personal-details-2")],
-                  1
-                ),
+                _c("div", {
+                  staticClass: "step",
+                  attrs: { "data-step-id": "2" }
+                }),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -24138,9 +24308,16 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
+                  { staticClass: "step", attrs: { "data-step-id": "5" } },
+                  [_c("documents-upload")],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
                   {
                     staticClass: "step step-confirm",
-                    attrs: { "data-step-id": "5" }
+                    attrs: { "data-step-id": "6" }
                   },
                   [_c("finish")],
                   1
@@ -24306,6 +24483,78 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue?vue&type=template&id=482f9722&":
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue?vue&type=template&id=482f9722& ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* binding */ render,
+/* harmony export */   "staticRenderFns": () => /* binding */ staticRenderFns
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "step-label" }, [_vm._v("Attach you CV")]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "formInput",
+            attrs: {
+              type: "file",
+              id: "cv",
+              name: "cv",
+              autocomplete: "off",
+              spellcheck: "false",
+              accept:
+                "application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessing,application/vnd.ms-fontobject"
+            }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "step-label" }, [
+            _vm._v("Attach any other supporting document")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "formInput",
+            attrs: {
+              type: "file",
+              id: "other",
+              name: "other",
+              autocomplete: "off",
+              spellcheck: "false",
+              accept:
+                "application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessing,application/vnd.ms-fontobject"
+            }
+          })
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Pages/Recruit/Widgets/Finish.vue?vue&type=template&id=ac71874c&":
 /*!****************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Pages/Recruit/Widgets/Finish.vue?vue&type=template&id=ac71874c& ***!
@@ -24436,7 +24685,7 @@ var staticRenderFns = [
         ),
         _vm._v(" "),
         _c("div", {
-          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text dov"
+          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text dob"
         })
       ]),
       _vm._v(" "),
@@ -24464,11 +24713,83 @@ var staticRenderFns = [
           {
             staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
           },
-          [_vm._v("\n      Phone Number\n    ")]
+          [_vm._v("\n      Specialization\n    ")]
         ),
         _vm._v(" "),
         _c("div", {
-          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text phone"
+          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text specialization"
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row fadeTop" }, [
+        _c(
+          "div",
+          {
+            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
+          },
+          [_vm._v("\n      Preferred Role\n    ")]
+        ),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text preferred_role"
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row fadeTop" }, [
+        _c(
+          "div",
+          {
+            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
+          },
+          [_vm._v("\n      Most Recent Job Title\n    ")]
+        ),
+        _vm._v(" "),
+        _c("div", {
+          staticClass:
+            "col-md-9 col-sm-6 col-xs-12 confirm-text recent_job_title"
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row fadeTop" }, [
+        _c(
+          "div",
+          {
+            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
+          },
+          [_vm._v("\n      Highest Role\n    ")]
+        ),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text highest_role"
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row fadeTop" }, [
+        _c(
+          "div",
+          {
+            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
+          },
+          [_vm._v("\n      Years of Experience\n    ")]
+        ),
+        _vm._v(" "),
+        _c("div", {
+          staticClass:
+            "col-md-9 col-sm-6 col-xs-12 confirm-text total_years_of_xp"
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row fadeTop" }, [
+        _c(
+          "div",
+          {
+            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
+          },
+          [_vm._v("\n      About You\n    ")]
+        ),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text summary"
         })
       ]),
       _vm._v(" "),
@@ -24484,7 +24805,7 @@ var staticRenderFns = [
           {
             staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
           },
-          [_vm._v("\n      Receive Free Catalog?\n    ")]
+          [_vm._v("\n      Receive Free Job Postings to e-mail?\n    ")]
         ),
         _vm._v(" "),
         _c("div", {
@@ -24516,7 +24837,7 @@ var staticRenderFns = [
               }),
               _vm._v("I agree to\n          the "),
               _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                _vm._v("terms of service")
+                _vm._v("terms & conditions.")
               ]),
               _vm._v(".\n        ")
             ])
@@ -24532,7 +24853,7 @@ var staticRenderFns = [
                 onclick: "event.preventDefault(); console.log('Now you see me')"
               }
             },
-            [_vm._v("Ready, Let's Start!")]
+            [_vm._v("All done! Finish.")]
           )
         ])
       ])
@@ -25022,17 +25343,17 @@ var staticRenderFns = [
           _c("div", { staticClass: "form-group" }, [
             _c(
               "label",
-              { staticClass: "formLabel", attrs: { for: "years_of_xp" } },
+              { staticClass: "formLabel", attrs: { for: "total_years_of_xp" } },
               [_vm._v("Years of Experience")]
             ),
             _vm._v(" "),
             _c("input", {
               staticClass: "formInput",
               attrs: {
-                type: "number",
+                type: "text",
                 required: "",
-                id: "years_of_xp",
-                name: "years_of_xp",
+                id: "total_years_of_xp",
+                name: "total_years_of_xp",
                 autocomplete: "off",
                 spellcheck: "false"
               }
@@ -25048,7 +25369,12 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("textarea", {
           staticClass: "formInput",
-          attrs: { name: "summary", id: "summary" }
+          attrs: {
+            name: "summary",
+            id: "summary",
+            placeholder:
+              "e.g Passionate science teacher with 8+ years of experience and a track record of.."
+          }
         })
       ])
     ])
@@ -37321,6 +37647,7 @@ Vue.compile = compileToFunctions;
 var map = {
 	"./components/Pages/Recruit/RecruitPage.vue": "./resources/js/components/Pages/Recruit/RecruitPage.vue",
 	"./components/Pages/Recruit/Widgets/ContactInformation.vue": "./resources/js/components/Pages/Recruit/Widgets/ContactInformation.vue",
+	"./components/Pages/Recruit/Widgets/DocumentsUpload.vue": "./resources/js/components/Pages/Recruit/Widgets/DocumentsUpload.vue",
 	"./components/Pages/Recruit/Widgets/Finish.vue": "./resources/js/components/Pages/Recruit/Widgets/Finish.vue",
 	"./components/Pages/Recruit/Widgets/PersonalDetails.vue": "./resources/js/components/Pages/Recruit/Widgets/PersonalDetails.vue",
 	"./components/Pages/Recruit/Widgets/PersonalDetails2.vue": "./resources/js/components/Pages/Recruit/Widgets/PersonalDetails2.vue",

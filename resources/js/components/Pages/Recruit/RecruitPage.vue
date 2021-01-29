@@ -23,10 +23,10 @@
           <form action="#" name="signupForm" autocomplete="off">
             <div class="luna-steps">
               <div class="step step-active" data-step-id="1">
-                <personal-details></personal-details>
+                <!-- <personal-details></personal-details> -->
               </div>
               <div class="step" data-step-id="2">
-                <personal-details-2></personal-details-2>
+                <!-- <personal-details-2></personal-details-2> -->
               </div>
               <div class="step" data-step-id="3">
                 <work-experience></work-experience>
@@ -34,7 +34,10 @@
               <div class="step" data-step-id="4">
                 <contact-information></contact-information>
               </div>
-              <div class="step step-confirm" data-step-id="5">
+              <div class="step" data-step-id="5">
+                <documents-upload></documents-upload>
+              </div>
+              <div class="step step-confirm" data-step-id="6">
                 <finish />
               </div>
             </div>
@@ -57,8 +60,6 @@
 </template>
 
 <script>
-import ContactInformation from "./Widgets/ContactInformation.vue";
-
 export default {
   data() {
     return {

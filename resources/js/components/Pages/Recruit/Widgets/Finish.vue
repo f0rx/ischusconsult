@@ -57,7 +57,7 @@
       <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
         Date of Birth
       </div>
-      <div class="col-md-9 col-sm-6 col-xs-12 confirm-text dov"></div>
+      <div class="col-md-9 col-sm-6 col-xs-12 confirm-text dob"></div>
     </div>
 
     <div class="row fadeTop">
@@ -75,9 +75,52 @@
 
     <div class="row fadeTop">
       <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
-        Phone Number
+        Specialization
       </div>
-      <div class="col-md-9 col-sm-6 col-xs-12 confirm-text phone"></div>
+      <div
+        class="col-md-9 col-sm-6 col-xs-12 confirm-text specialization"
+      ></div>
+    </div>
+
+    <div class="row fadeTop">
+      <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
+        Preferred Role
+      </div>
+      <div
+        class="col-md-9 col-sm-6 col-xs-12 confirm-text preferred_role"
+      ></div>
+    </div>
+
+    <div class="row fadeTop">
+      <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
+        Most Recent Job Title
+      </div>
+      <div
+        class="col-md-9 col-sm-6 col-xs-12 confirm-text recent_job_title"
+      ></div>
+    </div>
+
+    <div class="row fadeTop">
+      <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
+        Highest Role
+      </div>
+      <div class="col-md-9 col-sm-6 col-xs-12 confirm-text highest_role"></div>
+    </div>
+
+    <div class="row fadeTop">
+      <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
+        Years of Experience
+      </div>
+      <div
+        class="col-md-9 col-sm-6 col-xs-12 confirm-text total_years_of_xp"
+      ></div>
+    </div>
+
+    <div class="row fadeTop">
+      <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
+        About You
+      </div>
+      <div class="col-md-9 col-sm-6 col-xs-12 confirm-text summary"></div>
     </div>
 
     <div class="fadeTop">
@@ -86,7 +129,7 @@
 
     <div class="row fadeTop">
       <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
-        Receive Free Catalog?
+        Receive Free Job Postings to e-mail?
       </div>
       <div
         class="col-md-9 col-sm-6 col-xs-12 confirm-text requestcatalog"
@@ -107,7 +150,7 @@
         <div>
           <label class="checkbox-inline agreement">
             <input id="agreement" name="agreement" type="checkbox" />I agree to
-            the <a href="#" target="_blank">terms of service</a>.
+            the <a href="#" target="_blank">terms &amp; conditions.</a>.
           </label>
         </div>
         <a
@@ -115,7 +158,7 @@
           type="submit"
           class="btn btn-green btn-rounded finishBtn"
           onclick="event.preventDefault(); console.log('Now you see me')"
-          >Ready, Let's Start!</a
+          >All done! Finish.</a
         >
       </div>
     </div>

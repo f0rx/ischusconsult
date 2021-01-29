@@ -70,13 +70,15 @@
 
       <div class="col-md-6">
         <div class="form-group">
-          <label class="formLabel" for="years_of_xp">Years of Experience</label>
+          <label class="formLabel" for="total_years_of_xp"
+            >Years of Experience</label
+          >
           <input
-            type="number"
+            type="text"
             class="formInput"
             required
-            id="years_of_xp"
-            name="years_of_xp"
+            id="total_years_of_xp"
+            name="total_years_of_xp"
             autocomplete="off"
             spellcheck="false"
           />
@@ -86,7 +88,12 @@
 
     <div class="form-group">
       <div class="step-label">About Me (Optional)</div>
-      <textarea class="formInput" name="summary" id="summary"></textarea>
+      <textarea
+        class="formInput"
+        name="summary"
+        id="summary"
+        placeholder="e.g Passionate science teacher with 8+ years of experience and a track record of.."
+      ></textarea>
     </div>
   </div>
 </template>
