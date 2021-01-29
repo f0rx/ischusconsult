@@ -157,7 +157,7 @@
           href="#"
           type="submit"
           class="btn btn-green btn-rounded finishBtn"
-          onclick="event.preventDefault(); console.log('Now you see me')"
+          @click="$parent.submit($event)"
           >All done! Finish.</a
         >
       </div>

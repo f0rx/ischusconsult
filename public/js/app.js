@@ -3857,10 +3857,51 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    action: {
+      type: String,
+      required: true
+    },
+    csrfToken: {
+      type: String,
+      required: true
+    }
+  },
   data: function data() {
-    return {//
+    return {
+      form: {
+        first_name: null,
+        last_name: null,
+        email: null,
+        phone: null,
+        marital_status: null,
+        address: null,
+        city: null,
+        state: null,
+        gender: null,
+        dob: null,
+        specialization: null,
+        preferred_role: null,
+        recent_job_title: null,
+        highest_role: null,
+        total_years_of_xp: null,
+        summary: null
+      }
     };
+  },
+  methods: {
+    submit: function submit(event) {
+      event.preventDefault();
+      this.$refs.signupForm.submit();
+    }
   }
 });
 
@@ -4289,6 +4330,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {//
@@ -4367,6 +4415,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {//
@@ -4387,6 +4452,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -24277,57 +24348,76 @@ var render = function() {
         _c("div", { staticClass: "container-fluid" }, [
           _vm._m(1),
           _vm._v(" "),
-          _c("form", { attrs: { action: "#", name: "signupForm" } }, [
-            _c("div", { staticClass: "luna-steps" }, [
-              _c(
-                "div",
-                {
+          _c(
+            "form",
+            {
+              ref: "signupForm",
+              attrs: { action: _vm.action, method: "POST", name: "signupForm" }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.csrfToken,
+                    expression: "csrfToken"
+                  }
+                ],
+                attrs: { type: "hidden", name: "_token" },
+                domProps: { value: _vm.csrfToken },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.csrfToken = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "luna-steps" }, [
+                _c("div", {
                   staticClass: "step step-active",
                   attrs: { "data-step-id": "1" }
-                },
-                [_c("personal-details")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "step", attrs: { "data-step-id": "2" } },
-                [_c("personal-details-2")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "step", attrs: { "data-step-id": "3" } },
-                [_c("work-experience")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "step", attrs: { "data-step-id": "4" } },
-                [_c("contact-information")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "step", attrs: { "data-step-id": "5" } },
-                [_c("documents-upload")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "step step-confirm",
-                  attrs: { "data-step-id": "6" }
-                },
-                [_c("finish")],
-                1
-              )
-            ])
-          ]),
+                }),
+                _vm._v(" "),
+                _c("div", {
+                  staticClass: "step",
+                  attrs: { "data-step-id": "2" }
+                }),
+                _vm._v(" "),
+                _c("div", {
+                  staticClass: "step",
+                  attrs: { "data-step-id": "3" }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "step", attrs: { "data-step-id": "4" } },
+                  [_c("contact-information")],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "step", attrs: { "data-step-id": "5" } },
+                  [_c("documents-upload")],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "step step-confirm",
+                    attrs: { "data-step-id": "6" }
+                  },
+                  [_c("finish")],
+                  1
+                )
+              ])
+            ]
+          ),
           _vm._v(" "),
           _vm._m(2)
         ])
@@ -24574,291 +24664,369 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h2", { staticClass: "step-title" }, [_vm._v("Confirm Details")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _vm._m(4),
+    _vm._v(" "),
+    _vm._m(5),
+    _vm._v(" "),
+    _vm._m(6),
+    _vm._v(" "),
+    _vm._m(7),
+    _vm._v(" "),
+    _vm._m(8),
+    _vm._v(" "),
+    _vm._m(9),
+    _vm._v(" "),
+    _vm._m(10),
+    _vm._v(" "),
+    _vm._m(11),
+    _vm._v(" "),
+    _vm._m(12),
+    _vm._v(" "),
+    _vm._m(13),
+    _vm._v(" "),
+    _vm._m(14),
+    _vm._v(" "),
+    _vm._m(15),
+    _vm._v(" "),
+    _vm._m(16),
+    _vm._v(" "),
+    _vm._m(17),
+    _vm._v(" "),
+    _vm._m(18),
+    _vm._v(" "),
+    _c("div", { staticClass: "fadeTop" }, [
+      _c("div", { staticClass: "step-confirm-buttons" }, [
+        _vm._m(19),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-green btn-rounded finishBtn",
+            attrs: { href: "#", type: "submit" },
+            on: {
+              click: function($event) {
+                return _vm.$parent.submit($event)
+              }
+            }
+          },
+          [_vm._v("All done! Finish.")]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "fadeTop" }, [
+      _c("h3", { staticClass: "step-sub-title" }, [_vm._v("Personal Details")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      First Name\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text first_name"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      Last Name\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text last_name"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      Email\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text email"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      Phone Number\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text phone"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      Address\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text" }, [
+        _c("span", { staticClass: "address" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "city" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "state" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      Gender\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text gender"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      Date of Birth\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text dob" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      Marital Status\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text marital_status"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "fadeTop" }, [
+      _c("h3", { staticClass: "step-sub-title" }, [_vm._v("Work Experience")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      Specialization\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text specialization"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      Preferred Role\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text preferred_role"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      Most Recent Job Title\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text recent_job_title"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      Highest Role\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text highest_role"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      Years of Experience\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass:
+          "col-md-9 col-sm-6 col-xs-12 confirm-text total_years_of_xp"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      About You\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text summary"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "fadeTop" }, [
+      _c("h3", { staticClass: "step-sub-title" }, [
+        _vm._v("Contact Information")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      Receive Free Job Postings to e-mail?\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text requestcatalog"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row fadeTop" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label" },
+        [_vm._v("\n      Communication Preference\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass:
+          "col-md-9 col-sm-6 col-xs-12 confirm-text communicationprefer"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h2", { staticClass: "step-title" }, [_vm._v("Confirm Details")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "fadeTop" }, [
-        _c("h3", { staticClass: "step-sub-title" }, [
-          _vm._v("Personal Details")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      First Name\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text first_name"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      Last Name\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text last_name"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      Email\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text email"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      Phone Number\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text phone"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      Address\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text" }, [
-          _c("span", { staticClass: "address" }),
-          _vm._v(" "),
-          _c("span", { staticClass: "city" }),
-          _vm._v(" "),
-          _c("span", { staticClass: "state" })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      Gender\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text gender"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      Date of Birth\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text dob"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      Marital Status\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text marital_status"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "fadeTop" }, [
-        _c("h3", { staticClass: "step-sub-title" }, [_vm._v("Work Experience")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      Specialization\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text specialization"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      Preferred Role\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text preferred_role"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      Most Recent Job Title\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass:
-            "col-md-9 col-sm-6 col-xs-12 confirm-text recent_job_title"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      Highest Role\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text highest_role"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      Years of Experience\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass:
-            "col-md-9 col-sm-6 col-xs-12 confirm-text total_years_of_xp"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      About You\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text summary"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "fadeTop" }, [
-        _c("h3", { staticClass: "step-sub-title" }, [
-          _vm._v("Contact Information")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      Receive Free Job Postings to e-mail?\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text requestcatalog"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row fadeTop" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-md-3 col-sm-6 col-xs-12 text-right confirm-label"
-          },
-          [_vm._v("\n      Communication Preference\n    ")]
-        ),
-        _vm._v(" "),
-        _c("div", {
-          staticClass:
-            "col-md-9 col-sm-6 col-xs-12 confirm-text communicationprefer"
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "fadeTop" }, [
-        _c("div", { staticClass: "step-confirm-buttons" }, [
-          _c("div", [
-            _c("label", { staticClass: "checkbox-inline agreement" }, [
-              _c("input", {
-                attrs: { id: "agreement", name: "agreement", type: "checkbox" }
-              }),
-              _vm._v("I agree to\n          the "),
-              _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                _vm._v("terms & conditions.")
-              ]),
-              _vm._v(".\n        ")
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-green btn-rounded finishBtn",
-              attrs: {
-                href: "#",
-                type: "submit",
-                onclick: "event.preventDefault(); console.log('Now you see me')"
-              }
-            },
-            [_vm._v("All done! Finish.")]
-          )
-        ])
+      _c("label", { staticClass: "checkbox-inline agreement" }, [
+        _c("input", {
+          attrs: { id: "agreement", name: "agreement", type: "checkbox" }
+        }),
+        _vm._v("I agree to\n          the "),
+        _c("a", { attrs: { href: "#", target: "_blank" } }, [
+          _vm._v("terms & conditions.")
+        ]),
+        _vm._v(".\n        ")
       ])
     ])
   }
@@ -24885,195 +25053,321 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h1", { staticClass: "step-title" }, [_vm._v("Personal Details")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c(
-              "label",
-              { staticClass: "formLabel", attrs: { for: "first_name" } },
-              [_vm._v("First Name")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "formInput",
-              attrs: {
-                type: "text",
-                required: "",
-                id: "first_name",
-                name: "first_name",
-                autocomplete: "off",
-                spellcheck: "false"
+  return _c("div", [
+    _c("h1", { staticClass: "step-title" }, [_vm._v("Personal Details")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c(
+            "label",
+            { staticClass: "formLabel", attrs: { for: "first_name" } },
+            [_vm._v("First Name")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.$parent.form.first_name,
+                expression: "$parent.form.first_name"
               }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c(
-              "label",
-              { staticClass: "formLabel", attrs: { for: "last_name" } },
-              [_vm._v("Last Name")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "formInput",
-              attrs: {
-                type: "text",
-                required: "",
-                id: "last_name",
-                name: "last_name",
-                autocomplete: "off",
-                spellcheck: "false"
+            ],
+            staticClass: "formInput",
+            attrs: {
+              type: "text",
+              required: "",
+              id: "first_name",
+              name: "first_name",
+              autocomplete: "off",
+              spellcheck: "false"
+            },
+            domProps: { value: _vm.$parent.form.first_name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.$parent.form, "first_name", $event.target.value)
               }
-            })
-          ])
+            }
+          })
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row m-b-10" }, [
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("div", { staticClass: "form-group m-b-0" }, [
-            _c("label", { staticClass: "formLabel", attrs: { for: "email" } }, [
-              _vm._v("What is your email?")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "formInput",
-              attrs: {
-                type: "email",
-                required: "",
-                id: "email",
-                name: "email",
-                autocomplete: "off",
-                spellcheck: "false"
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c(
+            "label",
+            { staticClass: "formLabel", attrs: { for: "last_name" } },
+            [_vm._v("Last Name")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.$parent.form.last_name,
+                expression: "$parent.form.last_name"
               }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("div", { staticClass: "form-group m-b-0" }, [
-            _c("label", { staticClass: "formLabel", attrs: { for: "phone" } }, [
-              _vm._v("Phone Number")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "formInput",
-              attrs: {
-                type: "text",
-                id: "phone",
-                name: "phone",
-                required: "",
-                autocomplete: "off",
-                spellcheck: "false"
+            ],
+            staticClass: "formInput",
+            attrs: {
+              type: "text",
+              required: "",
+              id: "last_name",
+              name: "last_name",
+              autocomplete: "off",
+              spellcheck: "false"
+            },
+            domProps: { value: _vm.$parent.form.last_name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.$parent.form, "last_name", $event.target.value)
               }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "help-block" }, [
-              _vm._v(
-                "\n          Please enter a valid 11 digit Nigeria phone number without country\n          code\n        "
-              )
-            ])
-          ])
+            }
+          })
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row m-b-10" }, [
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c("div", { staticClass: "form-group m-b-0" }, [
+          _c("label", { staticClass: "formLabel", attrs: { for: "email" } }, [
+            _vm._v("What is your email?")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.$parent.form.email,
+                expression: "$parent.form.email"
+              }
+            ],
+            staticClass: "formInput",
+            attrs: {
+              type: "email",
+              required: "",
+              id: "email",
+              name: "email",
+              autocomplete: "off",
+              spellcheck: "false"
+            },
+            domProps: { value: _vm.$parent.form.email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.$parent.form, "email", $event.target.value)
+              }
+            }
+          })
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("div", { staticClass: "step-label" }, [_vm._v("Address")]),
-        _vm._v(" "),
-        _c("textarea", {
-          staticClass: "formInput",
-          attrs: { name: "address", id: "address", required: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-6" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("div", { staticClass: "step-label" }, [_vm._v("City")]),
-            _vm._v(" "),
-            _c(
-              "select",
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c("div", { staticClass: "form-group m-b-0" }, [
+          _c("label", { staticClass: "formLabel", attrs: { for: "phone" } }, [
+            _vm._v("Phone Number")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
               {
-                staticClass: "selectpicker form-control",
-                attrs: {
-                  id: "city",
-                  name: "city",
-                  required: "",
-                  "aria-required": ""
+                name: "model",
+                rawName: "v-model",
+                value: _vm.$parent.form.phone,
+                expression: "$parent.form.phone"
+              }
+            ],
+            staticClass: "formInput",
+            attrs: {
+              type: "text",
+              id: "phone",
+              name: "phone",
+              required: "",
+              autocomplete: "off",
+              spellcheck: "false"
+            },
+            domProps: { value: _vm.$parent.form.phone },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
                 }
-              },
-              [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Select an option")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Alabama " } }, [
-                  _vm._v("Alabama")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Alaska " } }, [
-                  _vm._v("Alaska")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Arizona " } }, [
-                  _vm._v("Arizona")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "Arkansas " } }, [
-                  _vm._v("Arkansas")
-                ])
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("div", { staticClass: "step-label" }, [_vm._v("State")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                staticClass: "selectpicker form-control",
-                attrs: {
-                  id: "state",
-                  name: "state",
-                  required: "",
-                  "aria-required": ""
-                }
-              },
-              [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Select an option")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "lagos" } }, [_vm._v("Lagos")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "abuja" } }, [_vm._v("Abuja")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "ogun " } }, [_vm._v("Ogun")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "rivers" } }, [_vm._v("Rivers")])
-              ]
+                _vm.$set(_vm.$parent.form, "phone", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "help-block" }, [
+            _vm._v(
+              "\n          Please enter a valid 11 digit Nigeria phone number without country\n          code\n        "
             )
           ])
         ])
       ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("div", { staticClass: "step-label" }, [_vm._v("Address")]),
+      _vm._v(" "),
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.$parent.form.address,
+            expression: "$parent.form.address"
+          }
+        ],
+        staticClass: "formInput",
+        attrs: { name: "address", id: "address", required: "" },
+        domProps: { value: _vm.$parent.form.address },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.$parent.form, "address", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "step-label" }, [_vm._v("City")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$parent.form.city,
+                  expression: "$parent.form.city"
+                }
+              ],
+              staticClass: "selectpicker form-control",
+              attrs: {
+                id: "city",
+                name: "city",
+                required: "",
+                "aria-required": ""
+              },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.$parent.form,
+                    "city",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [
+                _vm._v("Select an option")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "Alabama " } }, [
+                _vm._v("Alabama")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "Alaska " } }, [_vm._v("Alaska")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "Arizona " } }, [
+                _vm._v("Arizona")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "Arkansas " } }, [
+                _vm._v("Arkansas")
+              ])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "step-label" }, [_vm._v("State")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$parent.form.state,
+                  expression: "$parent.form.state"
+                }
+              ],
+              staticClass: "selectpicker form-control",
+              attrs: {
+                id: "state",
+                name: "state",
+                required: "",
+                "aria-required": ""
+              },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.$parent.form,
+                    "state",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [
+                _vm._v("Select an option")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "lagos" } }, [_vm._v("Lagos")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "abuja" } }, [_vm._v("Abuja")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "ogun " } }, [_vm._v("Ogun")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "rivers" } }, [_vm._v("Rivers")])
+            ]
+          )
+        ])
+      ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -25096,115 +25390,173 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h1", { staticClass: "step-title" }, [_vm._v("Personal Details")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("div", { staticClass: "step-label" }, [
-              _vm._v("What is your gender?")
-            ]),
-            _vm._v(" "),
-            _c("label", { staticClass: "radio-inline" }, [
-              _c("input", {
-                attrs: {
-                  type: "radio",
-                  value: "Male",
-                  name: "gender",
-                  checked: ""
-                }
-              }),
-              _vm._v("\n          Male")
-            ]),
-            _vm._v(" "),
-            _c("label", { staticClass: "radio-inline" }, [
-              _c("input", {
-                attrs: { type: "radio", value: "Female", name: "gender" }
-              }),
-              _vm._v(" Female")
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { staticClass: "formLabel", attrs: { for: "dob" } }, [
-              _vm._v("Date of Birth")
-            ]),
-            _vm._v(" "),
+  return _c("div", [
+    _c("h1", { staticClass: "step-title" }, [_vm._v("Personal Details")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "step-label" }, [
+            _vm._v("What is your gender?")
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "radio-inline" }, [
             _c("input", {
-              staticClass: "formInput datepicker",
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$parent.form.gender,
+                  expression: "$parent.form.gender"
+                }
+              ],
               attrs: {
-                type: "text",
-                required: "",
-                id: "dob",
-                name: "dob",
-                autocomplete: "off",
-                spellcheck: "false"
+                type: "radio",
+                value: "male",
+                name: "gender",
+                checked: ""
+              },
+              domProps: { checked: _vm._q(_vm.$parent.form.gender, "male") },
+              on: {
+                change: function($event) {
+                  return _vm.$set(_vm.$parent.form, "gender", "male")
+                }
               }
-            })
+            }),
+            _vm._v("\n          Male")
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "radio-inline" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$parent.form.gender,
+                  expression: "$parent.form.gender"
+                }
+              ],
+              attrs: { type: "radio", value: "female", name: "gender" },
+              domProps: { checked: _vm._q(_vm.$parent.form.gender, "female") },
+              on: {
+                change: function($event) {
+                  return _vm.$set(_vm.$parent.form, "gender", "female")
+                }
+              }
+            }),
+            _vm._v("\n          Female")
           ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("div", { staticClass: "step-label" }, [
-              _vm._v("Marital Status")
-            ]),
-            _vm._v(" "),
-            _c(
-              "select",
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            directives: [
               {
-                staticClass: "selectpicker form-control",
-                attrs: {
-                  id: "marital_status",
-                  name: "marital_status",
-                  required: "",
-                  "aria-required": ""
+                name: "model",
+                rawName: "v-model",
+                value: _vm.$parent.form.dob,
+                expression: "$parent.form.dob"
+              }
+            ],
+            staticClass: "formInput",
+            attrs: {
+              type: "text",
+              placeholder: "Date of Birth",
+              required: "",
+              id: "dob",
+              name: "dob",
+              autocomplete: "off",
+              spellcheck: "false",
+              onfocus: "(this.type='date')",
+              onblur: "(this.type='text')"
+            },
+            domProps: { value: _vm.$parent.form.dob },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
                 }
+                _vm.$set(_vm.$parent.form, "dob", $event.target.value)
+              }
+            }
+          })
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "step-label" }, [_vm._v("Marital Status")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$parent.form.marital_status,
+                  expression: "$parent.form.marital_status"
+                }
+              ],
+              staticClass: "selectpicker form-control",
+              attrs: {
+                id: "marital_status",
+                name: "marital_status",
+                required: "",
+                "aria-required": ""
               },
-              [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Select an option")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "single" } }, [
-                  _vm._v("Single")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "married" } }, [
-                  _vm._v("Married")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "divorced" } }, [
-                  _vm._v("Divorced")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "widowed" } }, [
-                  _vm._v("Widowed")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "seperated" } }, [
-                  _vm._v("Seperated")
-                ])
-              ]
-            )
-          ])
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.$parent.form,
+                    "marital_status",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [
+                _vm._v("Select an option")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "single" } }, [_vm._v("Single")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "married" } }, [
+                _vm._v("Married")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "divorced" } }, [
+                _vm._v("Divorced")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "widowed" } }, [
+                _vm._v("Widowed")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "seperated" } }, [
+                _vm._v("Seperated")
+              ])
+            ]
+          )
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -25227,162 +25579,269 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h2", { staticClass: "step-title" }, [_vm._v("Work Experience")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c(
-              "label",
-              { staticClass: "formLabel", attrs: { for: "specialization" } },
-              [_vm._v("Specialization")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "formInput",
-              attrs: {
-                type: "text",
-                required: "",
-                id: "specialization",
-                name: "specialization",
-                autocomplete: "off",
-                spellcheck: "false"
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("div", { staticClass: "step-label" }, [
-              _vm._v("Preferred Role")
-            ]),
-            _vm._v(" "),
-            _c(
-              "select",
+  return _c("div", [
+    _c("h2", { staticClass: "step-title" }, [_vm._v("Work Experience")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c(
+            "label",
+            { staticClass: "formLabel", attrs: { for: "specialization" } },
+            [_vm._v("Specialization")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
               {
-                staticClass: "selectpicker form-control",
-                attrs: {
-                  id: "preferred_role",
-                  name: "preferred_role",
-                  required: "",
-                  "aria-required": ""
+                name: "model",
+                rawName: "v-model",
+                value: _vm.$parent.form.specialization,
+                expression: "$parent.form.specialization"
+              }
+            ],
+            staticClass: "formInput",
+            attrs: {
+              type: "text",
+              required: "",
+              id: "specialization",
+              name: "specialization",
+              autocomplete: "off",
+              spellcheck: "false"
+            },
+            domProps: { value: _vm.$parent.form.specialization },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
                 }
+                _vm.$set(
+                  _vm.$parent.form,
+                  "specialization",
+                  $event.target.value
+                )
+              }
+            }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "step-label" }, [_vm._v("Preferred Role")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$parent.form.preferred_role,
+                  expression: "$parent.form.preferred_role"
+                }
+              ],
+              staticClass: "selectpicker form-control",
+              attrs: {
+                id: "preferred_role",
+                name: "preferred_role",
+                required: "",
+                "aria-required": ""
               },
-              [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Select an option")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "manager" } }, [
-                  _vm._v("Manager")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "cto" } }, [
-                  _vm._v("Chief Technology Officer")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "ceo" } }, [
-                  _vm._v("Chief Executive Officer")
-                ])
-              ]
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c(
-          "label",
-          { staticClass: "formLabel", attrs: { for: "recent_job_title" } },
-          [_vm._v("Most Recent Job Title")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "formInput",
-          attrs: {
-            type: "text",
-            required: "",
-            id: "recent_job_title",
-            name: "recent_job_title",
-            autocomplete: "off",
-            spellcheck: "false"
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-6" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c(
-              "label",
-              { staticClass: "formLabel", attrs: { for: "highest_role" } },
-              [_vm._v("Highest Role")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "formInput",
-              attrs: {
-                type: "text",
-                required: "",
-                id: "highest_role",
-                name: "highest_role",
-                autocomplete: "off",
-                spellcheck: "false"
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.$parent.form,
+                    "preferred_role",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
               }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c(
-              "label",
-              { staticClass: "formLabel", attrs: { for: "total_years_of_xp" } },
-              [_vm._v("Years of Experience")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "formInput",
-              attrs: {
-                type: "text",
-                required: "",
-                id: "total_years_of_xp",
-                name: "total_years_of_xp",
-                autocomplete: "off",
-                spellcheck: "false"
-              }
-            })
-          ])
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [
+                _vm._v("Select an option")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "manager" } }, [
+                _vm._v("Manager")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "cto" } }, [
+                _vm._v("Chief Technology Officer")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "ceo" } }, [
+                _vm._v("Chief Executive Officer")
+              ])
+            ]
+          )
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("div", { staticClass: "step-label" }, [
-          _vm._v("About Me (Optional)")
-        ]),
-        _vm._v(" "),
-        _c("textarea", {
-          staticClass: "formInput",
-          attrs: {
-            name: "summary",
-            id: "summary",
-            placeholder:
-              "e.g Passionate science teacher with 8+ years of experience and a track record of.."
-          }
-        })
       ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c(
+        "label",
+        { staticClass: "formLabel", attrs: { for: "recent_job_title" } },
+        [_vm._v("Most Recent Job Title")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.$parent.form.recent_job_title,
+            expression: "$parent.form.recent_job_title"
+          }
+        ],
+        staticClass: "formInput",
+        attrs: {
+          type: "text",
+          required: "",
+          id: "recent_job_title",
+          name: "recent_job_title",
+          autocomplete: "off",
+          spellcheck: "false"
+        },
+        domProps: { value: _vm.$parent.form.recent_job_title },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.$parent.form, "recent_job_title", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c(
+            "label",
+            { staticClass: "formLabel", attrs: { for: "highest_role" } },
+            [_vm._v("Highest Role")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.$parent.form.highest_role,
+                expression: "$parent.form.highest_role"
+              }
+            ],
+            staticClass: "formInput",
+            attrs: {
+              type: "text",
+              required: "",
+              id: "highest_role",
+              name: "highest_role",
+              autocomplete: "off",
+              spellcheck: "false"
+            },
+            domProps: { value: _vm.$parent.form.highest_role },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.$parent.form, "highest_role", $event.target.value)
+              }
+            }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c(
+            "label",
+            { staticClass: "formLabel", attrs: { for: "total_years_of_xp" } },
+            [_vm._v("Years of Experience")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.$parent.form.total_years_of_xp,
+                expression: "$parent.form.total_years_of_xp"
+              }
+            ],
+            staticClass: "formInput",
+            attrs: {
+              type: "text",
+              required: "",
+              id: "total_years_of_xp",
+              name: "total_years_of_xp",
+              autocomplete: "off",
+              spellcheck: "false"
+            },
+            domProps: { value: _vm.$parent.form.total_years_of_xp },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.$parent.form,
+                  "total_years_of_xp",
+                  $event.target.value
+                )
+              }
+            }
+          })
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("div", { staticClass: "step-label" }, [_vm._v("About Me (Optional)")]),
+      _vm._v(" "),
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.$parent.form.summary,
+            expression: "$parent.form.summary"
+          }
+        ],
+        staticClass: "formInput",
+        attrs: {
+          name: "summary",
+          id: "summary",
+          placeholder:
+            "e.g Passionate science teacher with 8+ years of experience and a track record of.."
+        },
+        domProps: { value: _vm.$parent.form.summary },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.$parent.form, "summary", $event.target.value)
+          }
+        }
+      })
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

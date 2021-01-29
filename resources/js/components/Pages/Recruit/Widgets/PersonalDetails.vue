@@ -8,6 +8,7 @@
           <input
             type="text"
             class="formInput"
+            v-model="$parent.form.first_name"
             required
             id="first_name"
             name="first_name"
@@ -22,6 +23,7 @@
           <input
             type="text"
             class="formInput"
+            v-model="$parent.form.last_name"
             required
             id="last_name"
             name="last_name"
@@ -44,6 +46,7 @@
             name="email"
             autocomplete="off"
             spellcheck="false"
+            v-model="$parent.form.email"
           />
         </div>
       </div>
@@ -59,6 +62,7 @@
             required
             autocomplete="off"
             spellcheck="false"
+            v-model="$parent.form.phone"
           />
           <div class="help-block">
             Please enter a valid 11 digit Nigeria phone number without country
@@ -75,6 +79,7 @@
         name="address"
         id="address"
         required
+        v-model="$parent.form.address"
       ></textarea>
     </div>
 
@@ -88,6 +93,7 @@
             class="selectpicker form-control"
             required
             aria-required=""
+            v-model="$parent.form.city"
           >
             <option value="">Select an option</option>
             <option value="Alabama ">Alabama</option>
@@ -107,6 +113,7 @@
             class="selectpicker form-control"
             required
             aria-required=""
+            v-model="$parent.form.state"
           >
             <option value="">Select an option</option>
             <option value="lagos">Lagos</option>

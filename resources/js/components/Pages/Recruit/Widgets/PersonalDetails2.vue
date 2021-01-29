@@ -7,26 +7,42 @@
         <div class="form-group">
           <div class="step-label">What is your gender?</div>
           <label class="radio-inline"
-            ><input type="radio" value="Male" name="gender" checked />
+            ><input
+              type="radio"
+              value="male"
+              name="gender"
+              v-model="$parent.form.gender"
+              checked
+            />
             Male</label
           >
           <label class="radio-inline"
-            ><input type="radio" value="Female" name="gender" /> Female</label
+            ><input
+              type="radio"
+              value="female"
+              name="gender"
+              v-model="$parent.form.gender"
+            />
+            Female</label
           >
         </div>
       </div>
 
       <div class="col-sm-6">
         <div class="form-group">
-          <label class="formLabel" for="dob">Date of Birth</label>
+          <!-- <label class="formLabel" for="dob">Date of Birth</label> -->
           <input
             type="text"
-            class="formInput datepicker"
+            class="formInput"
+            placeholder="Date of Birth"
             required
             id="dob"
             name="dob"
             autocomplete="off"
             spellcheck="false"
+            v-model="$parent.form.dob"
+            onfocus="(this.type='date')"
+            onblur="(this.type='text')"
           />
         </div>
       </div>
@@ -42,6 +58,7 @@
             class="selectpicker form-control"
             required
             aria-required=""
+            v-model="$parent.form.marital_status"
           >
             <option value="">Select an option</option>
             <option value="single">Single</option>

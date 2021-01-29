@@ -20,16 +20,23 @@
               class="step-count"
             ></span>
           </div>
-          <form action="#" name="signupForm">
+          <form
+            :action="action"
+            method="POST"
+            name="signupForm"
+            ref="signupForm"
+          >
+            <input type="hidden" name="_token" v-model="csrfToken" />
+
             <div class="luna-steps">
               <div class="step step-active" data-step-id="1">
-                <personal-details></personal-details>
+                <!-- <personal-details></personal-details> -->
               </div>
               <div class="step" data-step-id="2">
-                <personal-details-2></personal-details-2>
+                <!-- <personal-details-2></personal-details-2> -->
               </div>
               <div class="step" data-step-id="3">
-                <work-experience></work-experience>
+                <!-- <work-experience></work-experience> -->
               </div>
               <div class="step" data-step-id="4">
                 <contact-information></contact-information>
@@ -61,10 +68,44 @@
 
 <script>
 export default {
+  props: {
+    action: {
+      type: String,
+      required: true,
+    },
+    csrfToken: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
-      //
+      form: {
+        first_name: null,
+        last_name: null,
+        email: null,
+        phone: null,
+        marital_status: null,
+        address: null,
+        city: null,
+        state: null,
+        gender: null,
+        dob: null,
+        specialization: null,
+        preferred_role: null,
+        recent_job_title: null,
+        highest_role: null,
+        total_years_of_xp: null,
+        summary: null,
+      },
     };
+  },
+
+  methods: {
+    submit(event) {
+      event.preventDefault();
+      this.$refs.signupForm.submit();
+    },
   },
 };
 </script>

@@ -35,7 +35,8 @@
         </toast-error>
 
         <!-- Entry point -->
-        <recruit-page></recruit-page>
+        <recruit-page action="{{ route('application.store') }}" csrf-token="{{ csrf_token() }}">
+        </recruit-page>
 
     </div>
 

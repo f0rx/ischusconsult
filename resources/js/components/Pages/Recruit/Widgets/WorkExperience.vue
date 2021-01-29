@@ -14,6 +14,7 @@
             name="specialization"
             autocomplete="off"
             spellcheck="false"
+            v-model="$parent.form.specialization"
           />
         </div>
       </div>
@@ -27,6 +28,7 @@
             class="selectpicker form-control"
             required
             aria-required=""
+            v-model="$parent.form.preferred_role"
           >
             <option value="">Select an option</option>
             <option value="manager">Manager</option>
@@ -49,6 +51,7 @@
         name="recent_job_title"
         autocomplete="off"
         spellcheck="false"
+        v-model="$parent.form.recent_job_title"
       />
     </div>
 
@@ -64,6 +67,7 @@
             name="highest_role"
             autocomplete="off"
             spellcheck="false"
+            v-model="$parent.form.highest_role"
           />
         </div>
       </div>
@@ -81,6 +85,7 @@
             name="total_years_of_xp"
             autocomplete="off"
             spellcheck="false"
+            v-model="$parent.form.total_years_of_xp"
           />
         </div>
       </div>
@@ -92,6 +97,7 @@
         class="formInput"
         name="summary"
         id="summary"
+        v-model="$parent.form.summary"
         placeholder="e.g Passionate science teacher with 8+ years of experience and a track record of.."
       ></textarea>
     </div>
