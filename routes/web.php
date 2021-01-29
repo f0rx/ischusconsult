@@ -39,9 +39,9 @@ Route::domain('admin.' . config('app.site_url'))
                 ->middleware('auth')
                 ->name('index');
 
-            // Route::get('/{id}', [JobAppliationController::class, 'show'])
-            //     ->middleware('auth')
-            //     ->name('show');
+            Route::get('/{id}', [JobAppliationController::class, 'show'])
+                ->middleware('auth')
+                ->name('show');
 
             Route::get('/{id}/edit', [JobAppliationController::class, 'edit'])
                 ->middleware('guest')
