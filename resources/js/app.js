@@ -8,12 +8,6 @@ require('./bootstrap');
 
 require('alpinejs');
 
-// Extra JS
-require('./extras/modern');
-require('./extras/forms/form-wizard');
-require('./extras/forms/summernote');
-require('./extras/table-data');
-
 window.Vue = require('vue').default;
 
 /**
@@ -29,17 +23,17 @@ const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 // Toast Configuration
-// window.toastTimeout = 7200;
-window.toastTimeout = 34948300;
+window.toastTimeout = 5600;
+// window.toastTimeout = 34948300;
 
 window.Emitter = new Vue();
 
-window.toastSuccess = (title, body, visible) => {
-    window.Emitter.$emit('toast-success', title, body, visible);
+window.toastSuccess = (title, body) => {
+    window.Emitter.$emit('toast-success', title, body);
 };
 
-window.toastError = (title, body, visible) => {
-    window.Emitter.$emit('toast-error', title, body, visible);
+window.toastError = (title, body) => {
+    window.Emitter.$emit('toast-error', title, body);
 };
 
 /**

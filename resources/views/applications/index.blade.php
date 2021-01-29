@@ -25,15 +25,6 @@
         </div>
     </div>
 
-    <toast-success
-        title="{{ session('success-title') ?? $successTitle ?? '' }}"
-        body="{{ session('success-body') ?? $successBody ?? '' }}">
-    </toast-success>
-    <toast-error
-        title="{{ session('error-title') ?? $errorTitle ?? '' }}"
-        body="{{ session('error-body') ?? $errorBody ?? '' }}">
-    </toast-error>
-
     <div id="main-wrapper">
         <div class="row">
             <div class="col-md-12">
@@ -71,33 +62,30 @@
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    @foreach ($applications as $app)
+                                    @foreach ($applications as $application)
                                     <tr>
-                                        <td>{{ $app->application_id }}</td>
-                                        <td>{{ $app->first_name }} {{ $app->last_name }}</td>
-                                        <td>{{ $app->address }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($app->dob)->age }} years</td>
-                                        <td>{{ $app->city }}, {{ $app->state }}</td>
-                                        <td>{{ $app->preferred_role }}</td>
-                                        <td>{{ $app->total_years_of_xp }}</td>
-                                        <td>{{ $app->specialization }}</td>
+                                        <td>{{ $application->application_id }}</td>
+                                        <td>{{ $application->first_name }} {{ $application->last_name }}</td>
+                                        <td>{{ $application->address }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($application->dob)->age }} years</td>
+                                        <td>{{ $application->city }}, {{ $application->state }}</td>
+                                        <td>{{ $application->preferred_role }}</td>
+                                        <td>{{ $application->total_years_of_xp }}</td>
+                                        <td>{{ $application->specialization }}</td>
                                         <td>
                                             <div class="btn-toolbar" role="toolbar" aria-label="Justified action buttons">
-                                                <a type="button" class="btn btn-default btn-block">
+                                                <a href="{{ route('admin.application.edit', ['application' => $application]) }}" class="btn btn-default btn-block">
                                                     <span class="icon icon-pencil"></span>
                                                 </a>
 
                                                 <a type="button" class="btn btn-danger btn-block">
-                                                    <form method="POST" action="{{ route('admin.application.delete', ['id' => $app->application_id]) }}">
+                                                    <form method="POST" action="{{ route('admin.application.delete', ['application' => $application]) }}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <span class="icon icon-trash" onclick="event.preventDefault();
                                                             this.closest('form').submit();"></span>
                                                     </form>
                                                 </a>
-                                                {{-- <x-button type="button" class="btn-danger">
-                                                    <span class="icon icon-trash"></span>
-                                                </x-button> --}}
                                             </div>
                                         </td>
                                     </tr>

@@ -8,7 +8,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\JobAppliationController;
+use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -20,13 +20,21 @@ Route::domain('recruit.' . config('app.site_url'))
         //     return redirect()->route('application.hello');
         // })->name('hello');
 
-        Route::get('/', [JobAppliationController::class, 'create'])
+        Route::get('/', [JobApplicationController::class, 'create'])
             ->middleware('guest')
             ->name('/');
 
-        Route::post('/store', [JobAppliationController::class, 'store'])
+        Route::post('/store', [JobApplicationController::class, 'store'])
             ->middleware('guest')
             ->name('store');
+
+        Route::get('/{application}/edit', [JobApplicationController::class, 'edit'])
+            ->middleware(['guest'])
+            ->name('edit');
+
+        Route::put('/{application}', [JobApplicationController::class, 'update'])
+            ->middleware(['guest'])
+            ->name('update');
     });
 
 
@@ -34,32 +42,32 @@ Route::domain('recruit.' . config('app.site_url'))
 Route::domain('admin.' . config('app.site_url'))
     ->name('admin.')->group(function () {
 
-        Route::name('application.')->group(function () {
-            Route::get('/all', [JobAppliationController::class, 'index'])
+        Route::prefix('applications')->name('application.')->group(function () {
+            Route::get('/all', [JobApplicationController::class, 'index'])
                 ->middleware('auth')
                 ->name('index');
 
-            Route::get('/{id}', [JobAppliationController::class, 'show'])
+            Route::get('/{application}', [JobApplicationController::class, 'show'])
                 ->middleware('auth')
                 ->name('show');
 
-            Route::get('/{id}/edit', [JobAppliationController::class, 'edit'])
-                ->middleware('guest')
+            Route::get('/{application}/edit', [JobApplicationController::class, 'edit'])
+                ->middleware(['auth'])
                 ->name('edit');
 
-            Route::put('/{id}', [JobAppliationController::class, 'update'])
-                ->middleware('guest')
+            Route::put('/{application}', [JobApplicationController::class, 'update'])
+                ->middleware(['auth'])
                 ->name('update');
 
-            Route::put('/{id}/restore', [JobAppliationController::class, 'restore'])
+            Route::put('/{application}/restore', [JobApplicationController::class, 'restore'])
                 ->middleware(['auth', 'role:super-admin|admin'])
                 ->name('restore');
 
-            Route::delete('/{id}/delete', [JobAppliationController::class, 'delete'])
+            Route::delete('/{application}/delete', [JobApplicationController::class, 'delete'])
                 ->middleware(['auth', 'role:super-admin|admin'])
                 ->name('delete');
 
-            Route::delete('/{id}/destroy', [JobAppliationController::class, 'destroy'])
+            Route::delete('/{application}/destroy', [JobApplicationController::class, 'destroy'])
                 ->middleware(['auth', 'role:super-admin|admin'])
                 ->name('destroy');
         });
@@ -70,11 +78,6 @@ Route::domain('admin.' . config('app.site_url'))
         Route::get('/', [AuthenticatedSessionController::class, 'create'])
             ->middleware('guest')
             ->name('index');
-
-        Route::view('/lock', 'auth.confirm-password')
-            ->middleware('password.confirm')
-            ->name('confirm.password');
-
 
         Route::prefix('v/0/')->middleware('auth')->group(function () {
             Route::get('/dashboard', [UserController::class, 'index'])

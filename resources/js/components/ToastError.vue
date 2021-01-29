@@ -1,47 +1,58 @@
 <template>
-  <div>
-      <div id="toast-container" class="toast-container toast-top-right"
-            v-for="error in errors"
-            :key="error._uid">
+    <div id="toast-container" class="toast-container toast-top-right" v-show="errors.length > 0">
         <div
-            class="toast toast-error box"
-            aria-live="polite"
-            v-show="error.visible">
-        <span class="close-box" @click="this.splice()">x</span>
-        <div class="toast-title">{{ error.title }}</div>
-        <div class="toast-message">{{ error.body }}</div>
+        class="toast toast-error box"
+        aria-live="polite"
+        v-for="error in errors"
+        :key="error.unique_id">
+            <span class="close-box" @click="removeSpecific(error.unique_id)">x</span>
+            <div class="toast-title">{{ error.title }}</div>
+            <div class="toast-message">{{ error.body }}</div>
         </div>
     </div>
-  </div>
 </template>
 
 <script>
+const { v4: uuidv4 } = require('uuid');
+
 export default {
-  props: [ "title", "body", "visible" ],
+  props: {
+      title: {
+          type: String,
+          required: true
+      },
+      body: {
+          type: String,
+          required: true
+      }
+  },
+
   data() {
     return {
       errors: [],
       timeoutStarted: false
     };
   },
+
   created() {
     if (this.title) {
-      this.insertToerror(this.title, this.body, this.visible);
+      this.insertToerror(this.title, this.body);
     }
-    window.Emitter.$on("toast-error", (title, body, visible) => {
-      this.insertToerror(title, body, visible);
+    window.Emitter.$on("toast-error", (title, body) => {
+      this.insertToerror(title, body);
     });
   },
+
   mounted() {
     this.startTimeout();
   },
+
   methods: {
     insertToerror(title, body, visible) {
-        console.log("Is visible ==> " + visible);
       this.errors.push({
+        unique_id: uuidv4(),
         title: title,
         body: body,
-        visible: visible
       });
       this.timeoutStarted == false ? this.startTimeout() : null;
     },
@@ -60,13 +71,18 @@ export default {
       } else {
         this.timeoutStarted = false;
       }
+    },
+
+    removeSpecific(uuid) {
+        this.errors = this.errors.filter((item) => item.unique_id != uuid);
     }
-  }
+  },
 };
 </script>
 
 <style>
 @import "toastr";
+
 .box {
     display: flex !important;
     flex-direction: column !important;
@@ -83,6 +99,6 @@ export default {
     font-weight: 600 !important;
     line-height: 0rem !important;
     margin: 0rem !important;
-    padding: 0rem !important;
+    padding: 6px 6px 10px 6px !important;
 }
 </style>

@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\JobAppliation;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
@@ -59,7 +58,7 @@ class DatabaseSeeder extends Seeder
             });
 
         // Seed sample applications
-        $this->call(JobAppliationSeeder::class);
+        $this->call(JobApplicationSeeder::class);
 
         // Re enable all mass assignment restrictions
         Model::reguard();

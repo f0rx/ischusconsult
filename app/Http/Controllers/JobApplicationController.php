@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\JobAppliation;
+use App\Models\JobApplication;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
-class JobAppliationController extends Controller
+class JobApplicationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class JobAppliationController extends Controller
      */
     public function index(Request $request)
     {
-        $applications = JobAppliation::all();
-        $request->session()->flash('error-title', 'Task was unsuccessful!');
-        $request->session()->flash('error-body', 'User data was corrupt.');
+        $applications = JobApplication::all();
+        $request->session()->flash('error-title', 'User account created!');
+        $request->session()->flash('error-body', 'Proceed to checkout.');
         return view('applications.index', compact('applications'));
     }
 
@@ -28,7 +28,7 @@ class JobAppliationController extends Controller
      */
     public function create()
     {
-        return view('welcome');
+        return view('recruit.index');
     }
 
     /**
@@ -39,62 +39,63 @@ class JobAppliationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd('Hello i\'m currently working on this feature');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\JobAppliation  $jobAppliation
+     * @param  \App\Models\JobApplication  $application
      * @return \Illuminate\Http\Response
      */
-    public function show(JobAppliation $jobAppliation)
+    public function show(JobApplication $application)
     {
-        return view('applications.show', compact('jobAppliation'));
+        return view('applications.show', compact('application'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\JobAppliation  $jobAppliation
+     * @param  \App\Models\JobApplication  $application
      * @return \Illuminate\Http\Response
      */
-    public function edit(JobAppliation $jobAppliation)
+    public function edit(JobApplication $application)
     {
-        return view('applications.edit', compact('jobAppliation'));
+        return view('applications.edit', compact('application'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\JobAppliation  $jobAppliation
+     * @param  \App\Models\JobApplication  $application
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, JobAppliation $jobAppliation)
+    public function update(Request $request, JobApplication $application)
     {
-        dd('$request');
+        dd('update item here and flash session');
     }
 
     /**
      * Soft Delete specified resource.
      *
-     * @param  \App\Models\JobAppliation  $jobAppliation
+     * @param  \App\Models\JobApplication  $application
      * @return \Illuminate\Http\Response
      */
-    public function delete(JobAppliation $jobAppliation)
+    public function delete(JobApplication $application)
     {
-        dd('$request');
+        dump('delete item here and flash session ==> ');
+        dd($application);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\JobAppliation  $jobAppliation
+     * @param  \App\Models\JobApplication  $application
      * @return \Illuminate\Http\Response
      */
-    public function destroy(JobAppliation $jobAppliation)
+    public function destroy(JobApplication $application)
     {
-        //
+        dd('DESTROY item here and flash session');
     }
 }

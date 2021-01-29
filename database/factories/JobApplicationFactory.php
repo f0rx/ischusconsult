@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\JobAppliation;
+use App\Models\JobApplication;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class JobAppliationFactory extends Factory
+class JobApplicationFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = JobAppliation::class;
+    protected $model = JobApplication::class;
 
     /**
      * Define the model's default state.
