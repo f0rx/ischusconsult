@@ -131,9 +131,7 @@
       <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
         Receive Free Job Postings to e-mail?
       </div>
-      <div
-        class="col-md-9 col-sm-6 col-xs-12 confirm-text requestcatalog"
-      ></div>
+      <div class="col-md-9 col-sm-6 col-xs-12 confirm-text subscribed"></div>
     </div>
 
     <div class="row fadeTop">
@@ -149,8 +147,13 @@
       <div class="step-confirm-buttons">
         <div>
           <label class="checkbox-inline agreement">
-            <input id="agreement" name="agreement" type="checkbox" />I agree to
-            the <a href="#" target="_blank">terms &amp; conditions.</a>.
+            <input
+              id="agreement"
+              name="agreement"
+              type="checkbox"
+              v-model="$parent.form.agreement"
+            />I agree to the
+            <a href="#" target="_blank">terms &amp; conditions.</a>.
           </label>
         </div>
         <a

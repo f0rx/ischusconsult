@@ -3864,6 +3864,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     action: {
@@ -3873,6 +3874,11 @@ __webpack_require__.r(__webpack_exports__);
     csrfToken: {
       type: String,
       required: true
+    },
+    old: {
+      type: Object,
+      required: false,
+      "default": function _default() {}
     }
   },
   data: function data() {
@@ -3893,14 +3899,15 @@ __webpack_require__.r(__webpack_exports__);
         recent_job_title: null,
         highest_role: null,
         total_years_of_xp: null,
-        summary: null
+        summary: null,
+        agreement: false
       }
     };
   },
   methods: {
     submit: function submit(event) {
       event.preventDefault();
-      this.$refs.signupForm.submit();
+      if (this.form.agreement) this.$refs.signupForm.submit();
     }
   }
 });
@@ -3918,7 +3925,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-//
 //
 //
 //
@@ -4021,6 +4027,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
+//
+//
+//
 //
 //
 //
@@ -24352,7 +24361,12 @@ var render = function() {
             "form",
             {
               ref: "signupForm",
-              attrs: { action: _vm.action, method: "POST", name: "signupForm" }
+              attrs: {
+                action: _vm.action,
+                method: "POST",
+                name: "signupForm",
+                enctype: "multipart/form-data"
+              }
             },
             [
               _c("input", {
@@ -24377,20 +24391,29 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("div", { staticClass: "luna-steps" }, [
-                _c("div", {
-                  staticClass: "step step-active",
-                  attrs: { "data-step-id": "1" }
-                }),
+                _c(
+                  "div",
+                  {
+                    staticClass: "step step-active",
+                    attrs: { "data-step-id": "1" }
+                  },
+                  [_c("personal-details")],
+                  1
+                ),
                 _vm._v(" "),
-                _c("div", {
-                  staticClass: "step",
-                  attrs: { "data-step-id": "2" }
-                }),
+                _c(
+                  "div",
+                  { staticClass: "step", attrs: { "data-step-id": "2" } },
+                  [_c("personal-details-2")],
+                  1
+                ),
                 _vm._v(" "),
-                _c("div", {
-                  staticClass: "step",
-                  attrs: { "data-step-id": "3" }
-                }),
+                _c(
+                  "div",
+                  { staticClass: "step", attrs: { "data-step-id": "3" } },
+                  [_c("work-experience")],
+                  1
+                ),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -24523,17 +24546,17 @@ var staticRenderFns = [
           _c("input", {
             attrs: {
               type: "radio",
-              value: "Yes",
-              name: "requestcatalog",
+              value: "yes",
+              name: "subscribed",
               checked: ""
             }
           }),
-          _vm._v("\n      Yes")
+          _vm._v(" Yes")
         ]),
         _vm._v(" "),
         _c("label", { staticClass: "radio-inline" }, [
           _c("input", {
-            attrs: { type: "radio", value: "No", name: "requestcatalog" }
+            attrs: { type: "radio", value: "no", name: "subscribed" }
           }),
           _vm._v(" No")
         ])
@@ -24548,7 +24571,7 @@ var staticRenderFns = [
           _c("input", {
             attrs: {
               type: "radio",
-              value: "Email",
+              value: "email",
               name: "communicationprefer",
               checked: ""
             }
@@ -24560,7 +24583,7 @@ var staticRenderFns = [
           _c("input", {
             attrs: {
               type: "radio",
-              value: "Phone",
+              value: "phone",
               name: "communicationprefer"
             }
           }),
@@ -24707,7 +24730,59 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "fadeTop" }, [
       _c("div", { staticClass: "step-confirm-buttons" }, [
-        _vm._m(19),
+        _c("div", [
+          _c("label", { staticClass: "checkbox-inline agreement" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$parent.form.agreement,
+                  expression: "$parent.form.agreement"
+                }
+              ],
+              attrs: { id: "agreement", name: "agreement", type: "checkbox" },
+              domProps: {
+                checked: Array.isArray(_vm.$parent.form.agreement)
+                  ? _vm._i(_vm.$parent.form.agreement, null) > -1
+                  : _vm.$parent.form.agreement
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.$parent.form.agreement,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = null,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(
+                          _vm.$parent.form,
+                          "agreement",
+                          $$a.concat([$$v])
+                        )
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.$parent.form,
+                          "agreement",
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.$parent.form, "agreement", $$c)
+                  }
+                }
+              }
+            }),
+            _vm._v("I agree to the\n          "),
+            _c("a", { attrs: { href: "#", target: "_blank" } }, [
+              _vm._v("terms & conditions.")
+            ]),
+            _vm._v(".\n        ")
+          ])
+        ]),
         _vm._v(" "),
         _c(
           "a",
@@ -24992,7 +25067,7 @@ var staticRenderFns = [
       ),
       _vm._v(" "),
       _c("div", {
-        staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text requestcatalog"
+        staticClass: "col-md-9 col-sm-6 col-xs-12 confirm-text subscribed"
       })
     ])
   },
@@ -25011,23 +25086,6 @@ var staticRenderFns = [
         staticClass:
           "col-md-9 col-sm-6 col-xs-12 confirm-text communicationprefer"
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("label", { staticClass: "checkbox-inline agreement" }, [
-        _c("input", {
-          attrs: { id: "agreement", name: "agreement", type: "checkbox" }
-        }),
-        _vm._v("I agree to\n          the "),
-        _c("a", { attrs: { href: "#", target: "_blank" } }, [
-          _vm._v("terms & conditions.")
-        ]),
-        _vm._v(".\n        ")
-      ])
     ])
   }
 ]

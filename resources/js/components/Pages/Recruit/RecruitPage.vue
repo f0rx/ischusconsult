@@ -25,18 +25,19 @@
             method="POST"
             name="signupForm"
             ref="signupForm"
+            enctype="multipart/form-data"
           >
             <input type="hidden" name="_token" v-model="csrfToken" />
 
             <div class="luna-steps">
               <div class="step step-active" data-step-id="1">
-                <!-- <personal-details></personal-details> -->
+                <personal-details></personal-details>
               </div>
               <div class="step" data-step-id="2">
-                <!-- <personal-details-2></personal-details-2> -->
+                <personal-details-2></personal-details-2>
               </div>
               <div class="step" data-step-id="3">
-                <!-- <work-experience></work-experience> -->
+                <work-experience></work-experience>
               </div>
               <div class="step" data-step-id="4">
                 <contact-information></contact-information>
@@ -77,6 +78,11 @@ export default {
       type: String,
       required: true,
     },
+    old: {
+      type: Object,
+      required: false,
+      default: () => {},
+    },
   },
   data() {
     return {
@@ -97,6 +103,7 @@ export default {
         highest_role: null,
         total_years_of_xp: null,
         summary: null,
+        agreement: false,
       },
     };
   },
@@ -104,7 +111,7 @@ export default {
   methods: {
     submit(event) {
       event.preventDefault();
-      this.$refs.signupForm.submit();
+      if (this.form.agreement) this.$refs.signupForm.submit();
     },
   },
 };

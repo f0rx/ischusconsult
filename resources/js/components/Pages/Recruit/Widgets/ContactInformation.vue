@@ -6,21 +6,20 @@
         Would you like to recieve free Job postings via e-mail?
       </div>
       <label class="radio-inline"
-        ><input type="radio" value="Yes" name="requestcatalog" checked />
-        Yes</label
+        ><input type="radio" value="yes" name="subscribed" checked /> Yes</label
       >
       <label class="radio-inline"
-        ><input type="radio" value="No" name="requestcatalog" /> No</label
+        ><input type="radio" value="no" name="subscribed" /> No</label
       >
     </div>
     <div class="form-group">
       <div class="step-label">Which kind of communication do you prefer?</div>
       <label class="radio-inline"
-        ><input type="radio" value="Email" name="communicationprefer" checked />
+        ><input type="radio" value="email" name="communicationprefer" checked />
         Email</label
       >
       <label class="radio-inline"
-        ><input type="radio" value="Phone" name="communicationprefer" />
+        ><input type="radio" value="phone" name="communicationprefer" />
         Phone</label
       >
     </div>
