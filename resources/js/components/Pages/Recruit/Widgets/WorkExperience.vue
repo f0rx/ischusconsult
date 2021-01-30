@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
-          <label class="formLabel" for="specialization">Specialization</label>
+          <label class="formLabel" for="specialization">Specialisation</label>
           <input
             type="text"
             class="formInput"
@@ -31,9 +31,9 @@
             v-model="$parent.form.preferred_role"
           >
             <option value="">Select an option</option>
-            <option value="manager">Manager</option>
-            <option value="cto">Chief Technology Officer</option>
-            <option value="ceo">Chief Executive Officer</option>
+            <option v-for="(item, i) in roles" :key="i" :value="item">
+              {{ item }}
+            </option>
           </select>
         </div>
       </div>
@@ -56,22 +56,6 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label class="formLabel" for="highest_role">Highest Role</label>
-          <input
-            type="text"
-            class="formInput"
-            required
-            id="highest_role"
-            name="highest_role"
-            autocomplete="off"
-            spellcheck="false"
-            v-model="$parent.form.highest_role"
-          />
-        </div>
-      </div>
-
       <div class="col-md-6">
         <div class="form-group">
           <label class="formLabel" for="total_years_of_xp"
@@ -108,7 +92,37 @@
 export default {
   data() {
     return {
-      //
+      roles: [
+        "PETROLEUM ENGINEER (RESERVOIR, P.TECH, PETROPHYSICS)",
+        "GEOSCIENCES (GEOLOGIST, SEISMOLOGIST)",
+        "PROJECT ENGINEER",
+        "ASSET INTEGRITY ENGINEER",
+        "DRILLING (COMPLETIONS) ENGINEER",
+        "PRODUCTION OPERATOR",
+        "MAINTENANCE OPERATOR (MECH, ELECT, INSTRUMENT)",
+        "PRODUCTION SUPERVISOR",
+        "MAINTENANCE SUPERVISOR",
+        "PRODUCTION PLANNER",
+        "FACILITY ENGINEER",
+        "DICSIPLINE ENGINEER (INSTR; CIVIL, ELECT)",
+        "PROJECT ENGINEER",
+        "COMMUNITY RELATIONS OFFICER",
+        "COMMUNITY RELATIONS SUPERVISOR",
+        "SECURITY MANAGER",
+        "SECURITY COORDINATOR",
+        "BASE MANAGER",
+        "LOGISTICS COORDINATOR",
+        "HSE LEAD (PROJECT, CORPORATE, ENVIRONMENT)",
+        "HSE OFFICER",
+        "ACCOUNTANTS (TREASURY, TAX, GL, JV)",
+        "COMMERCIAL LEAD",
+        "CORPORATE PLANNING ANALYST",
+        "ECONOMIST",
+        "LEGAL COUNSEL",
+        "HR BUSINESS PARTNER",
+        "HR ANALYST",
+        "SCM ANALYST",
+      ],
     };
   },
 };

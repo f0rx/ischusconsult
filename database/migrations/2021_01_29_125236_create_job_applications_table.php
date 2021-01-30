@@ -14,8 +14,8 @@ class CreateJobApplicationsTable extends Migration
     public function up()
     {
         Schema::create('job_applications', function (Blueprint $table) {
-            $table->id();
-            $table->string('application_id');
+            $table->increments('id');
+            $table->string('application_id')->unique();
 
             $table->string('first_name')->nullable();
             $table->string('last_name');
@@ -28,12 +28,12 @@ class CreateJobApplicationsTable extends Migration
             $table->string('state');
             $table->string('gender')->nullable();
             $table->dateTime('dob')->nullable();
+            $table->integer('age')->nullable();
 
             $table->string('specialization')->nullable();
             $table->string('preferred_role')->nullable();
             $table->string('recent_job_title')->nullable();
-            $table->string('highest_role')->nullable();
-            $table->smallInteger('total_years_of_xp')->nullable();
+            $table->string('total_years_of_xp')->nullable();
             $table->longText('summary')->nullable();
             $table->timestamps();
             $table->softDeletes();

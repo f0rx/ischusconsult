@@ -25,17 +25,33 @@
 
     <div class='luna-signup-container' id="app">
 
+        {{-- <a href="{{ route('application./') }}">Download file</a> --}}
+
+        {{-- <a
+            href="{{ Illuminate\Support\Facades\Storage::download('public/documents/ISCAH7XNUTO.docx') }}">Download
+            file</a> --}}
+
+
         <div class="luna-signup-left-overlay"></div>
 
         <toast-success title="{{ session('success-title') ?? ($successTitle ?? '') }}"
-            body="{{ session('success-body') ?? ($successBody ?? '') }}">
+            body="{{ session('success-body') ?? ($successBody ?? '') }}"
+            position="{{ session('success-position') ?? ($successPosition ?? '') }}">
         </toast-success>
         <toast-error title="{{ session('error-title') ?? ($errorTitle ?? '') }}"
-            body="{{ session('error-body') ?? ($errorBody ?? '') }}">
+            body="{{ session('error-body') ?? ($errorBody ?? '') }}"
+            position="{{ session('error-position') ?? ($errorPosition ?? '') }}">
         </toast-error>
 
         <!-- Entry point -->
-        <recruit-page action="{{ route('application.store') }}" csrf-token="{{ csrf_token() }}">
+        <recruit-page action="{{ route('application.store') }}" csrf-token="{{ csrf_token() }}"
+            session="{{ \Session::get('errors') }}" first-name="{{ old('first_name') }}"
+            last-name="{{ old('last_name') }}" email="{{ old('email') }}" phone="{{ old('phone') }}"
+            marital-status="{{ old('marital_status') }}" age="{{ old('age') }}" address="{{ old('address') }}"
+            city="{{ old('city') }}" state="{{ old('state') }}" gender="{{ old('gender') }}"
+            specialization="{{ old('specialization') }}" preferred-role="{{ old('preferred_role') }}"
+            recent-job-title="{{ old('recent_job_title') }}" total-years-of-xp="{{ old('total_years_of_xp') }}"
+            summary="{{ old('summary') }}">
         </recruit-page>
 
     </div>

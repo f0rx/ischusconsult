@@ -36,11 +36,11 @@ class JobApplicationFactory extends Factory
             'city' => $this->faker->city,
             'state' => $this->faker->state,
 
+            'age' => $this->faker->randomNumber(2, true),
             'gender' => $this->faker->randomElement($genders),
             'dob' => $this->faker->dateTimeBetween('-40 years', '-20 years'),
             'specialization' => Str::title($this->faker->words(2, true)),
             'preferred_role' => $this->faker->jobTitle,
-            'highest_role' => $this->faker->jobTitle,
             'recent_job_title' => $this->faker->jobTitle,
             'total_years_of_xp' => $this->faker->numberBetween(1, 9),
             'summary' => $this->faker->paragraphs(5, true),

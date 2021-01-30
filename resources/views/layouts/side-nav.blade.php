@@ -24,13 +24,6 @@
 
             <li><a href="{{ route('admin.show', ['user' => Auth::user()]) }}" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Profile</p></a></li>
 
-            <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>Mailbox</p><span class="arrow"></span></a>
-                <ul class="sub-menu">
-                    <li><a href="#">Inbox</a></li>
-                    <li><a href="#">Compose</a></li>
-                </ul>
-            </li>
-
             <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-briefcase"></span><p>Jobs</p><span class="arrow"></span></a>
                 <ul class="sub-menu">
                     <li><a href="{{ route('admin.application.index') }}">Applications</a></li>

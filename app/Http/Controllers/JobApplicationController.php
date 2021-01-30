@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JobApplicationRequest;
 use App\Models\JobApplication;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Str;
 
 class JobApplicationController extends Controller
 {
@@ -15,7 +18,7 @@ class JobApplicationController extends Controller
      */
     public function index(Request $request)
     {
-        $applications = JobApplication::all();
+        $applications = JobApplication::with('documents')->get();
         // $request->session()->flash('error-title', 'User account created!');
         // $request->session()->flash('error-body', 'Proceed to checkout.');
         return view('applications.index', compact('applications'));
@@ -34,12 +37,49 @@ class JobApplicationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\JobApplicationRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JobApplicationRequest $request)
     {
-        dd('Hello i\'m currently working on this feature');
+        // Generate an application ID
+        $application_id = Str::upper(Str::random(11));
+
+        // Store a new application
+        $jobApplication = JobApplication::create([
+            'application_id' => $application_id,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'dob' => $request->dob,
+            'age' => $request->age,
+            'marital_status' => $request->marital_status,
+            'address' => $request->address,
+            'city' => $request->city,
+            'state' => $request->state,
+            'gender' => $request->gender,
+            'specialization' => $request->specialization,
+            'preferred_role' => $request->preferred_role,
+            'recent_job_title' => $request->recent_job_title,
+            'total_years_of_xp' => $request->total_years_of_xp,
+            'summary' => $request->summary,
+        ]);
+
+        // // Get uploaded CV document
+        // $cv = $request->cv;
+
+        // // Store uploaded CV document (set visibility = PUBLIC)
+        // // $path = Storage::putFileAs('documents', $cv, $application_id . '.' . $cv->getClientOriginalExtension(), 'public');
+        // $path = $cv->storePubliclyAs(
+        //     'public' . '/' . $application_id,
+        //     $application_id . '.' . $cv->getClientOriginalExtension(),
+        // );
+
+        // $cvUpload = $jobApplication->documents();
+
+        session(['success-position' => 'top']);
+        return redirect()->back()->with('success-title', 'Application saved!');
     }
 
     /**
@@ -67,11 +107,11 @@ class JobApplicationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\JobApplicationRequest  $request
      * @param  \App\Models\JobApplication  $application
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, JobApplication $application)
+    public function update(JobApplicationRequest $request, JobApplication $application)
     {
         dd('update item here and flash session');
     }

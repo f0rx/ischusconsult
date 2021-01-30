@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\FileDocument;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -22,6 +23,7 @@ class JobApplication extends Model
         'email',
         'phone',
         'marital_status',
+        'age',
         'address',
         'city',
         'state',
@@ -29,7 +31,6 @@ class JobApplication extends Model
         'specialization',
         'preferred_role',
         'recent_job_title',
-        'highest_role',
         'total_years_of_xp',
         'summary',
     ];
@@ -51,5 +52,13 @@ class JobApplication extends Model
     public function getRouteKeyName()
     {
         return 'application_id';
+    }
+
+    /**
+     * Get the File documents for a Job Application.
+     */
+    public function documents()
+    {
+        return $this->hasMany(FileDocument::class);
     }
 }

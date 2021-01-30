@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\FileDocument;
 use App\Models\JobApplication;
 use Illuminate\Database\Seeder;
 
-class JobApplicationSeeder extends Seeder
+class FileDocumentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,6 @@ class JobApplicationSeeder extends Seeder
      */
     public function run()
     {
-        JobApplication::factory()->count(5)->create();
+        FileDocument::factory()->count(JobApplication::all()->count())->create();
     }
 }

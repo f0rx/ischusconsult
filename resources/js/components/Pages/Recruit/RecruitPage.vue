@@ -13,6 +13,7 @@
           <a class="toNext nextStep"><i class="icon icon-arrow-down2"></i></a>
         </div>
       </div>
+
       <div class="luna-signup-right">
         <div class="container-fluid">
           <div class="steps-count">
@@ -69,50 +70,110 @@
 
 <script>
 export default {
-  props: {
-    action: {
-      type: String,
-      required: true,
-    },
-    csrfToken: {
-      type: String,
-      required: true,
-    },
-    old: {
-      type: Object,
-      required: false,
-      default: () => {},
-    },
-  },
+  props: [
+    "action",
+    "csrfToken",
+    "session",
+
+    "firstName",
+    "lastName",
+    "email",
+    "phone",
+    "maritalStatus",
+    "age",
+    "address",
+    "city",
+    "state",
+    "gender",
+    "specialization",
+    "preferredRole",
+    "recentJobTitle",
+    "totalYearsOfXp",
+    "summary",
+  ],
   data() {
     return {
+      errors: [],
       form: {
-        first_name: null,
-        last_name: null,
-        email: null,
-        phone: null,
-        marital_status: null,
-        address: null,
-        city: null,
-        state: null,
-        gender: null,
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone: "",
+        marital_status: "",
+        address: "",
+        city: "",
+        state: "",
+        gender: "",
         dob: null,
-        specialization: null,
-        preferred_role: null,
-        recent_job_title: null,
-        highest_role: null,
-        total_years_of_xp: null,
-        summary: null,
+        age: null,
+        specialization: "",
+        preferred_role: "",
+        recent_job_title: "",
+        total_years_of_xp: "",
+        summary: "",
         agreement: false,
       },
     };
   },
 
   methods: {
+    _calculateAge(birthday) {
+      var ageDifMs = Date.now() - birthday.getTime();
+      var ageDate = new Date(ageDifMs);
+      return Math.abs(ageDate.getUTCFullYear() - 1970);
+    },
+    _calculateDoB(age) {},
     submit(event) {
       event.preventDefault();
+      if (this.form.age == null) {
+        this.form.age = this._calculateAge(this.form.dob);
+      }
+      if (this.form.dob == null) {
+        this.form.dob = this._calculateDoB(this.form.age);
+      }
       if (this.form.agreement) this.$refs.signupForm.submit();
     },
+  },
+
+  created() {
+    this.form.first_name =
+      typeof this.firstName != "undefined" ? this.firstName : null;
+    this.form.last_name =
+      typeof this.lastName != "undefined" ? this.lastName : null;
+    this.form.email = typeof this.email != "undefined" ? this.email : null;
+    this.form.phone = typeof this.phone != "undefined" ? this.phone : null;
+    this.form.marital_status =
+      typeof this.maritalStatus != "undefined" ? this.maritalStatus : null;
+    this.form.address =
+      typeof this.address != "undefined" ? this.address : null;
+    this.form.city = typeof this.city != "undefined" ? this.city : null;
+    this.form.state = typeof this.state != "undefined" ? this.state : null;
+    this.form.gender = typeof this.gender != "undefined" ? this.gender : null;
+    this.form.dob = typeof this.dob != "undefined" ? this.dob : null;
+    this.form.age = typeof this.age != "undefined" ? this.age : null;
+    this.form.specialization =
+      typeof this.specialization != "undefined" ? this.specialization : null;
+    this.form.preferred_role =
+      typeof this.preferred_role != "undefined" ? this.preferred_role : null;
+    this.form.recent_job_title =
+      typeof this.recentJobTitle != "undefined" ? this.recentJobTitle : null;
+    this.form.total_years_of_xp =
+      typeof this.totalYearsOfXp != "undefined" ? this.totalYearsOfXp : null;
+    this.form.summary =
+      typeof this.summary != "undefined" ? this.summary : null;
+    this.form.agreement =
+      typeof this.agreement != "undefined" ? this.agreement : null;
+
+    let validation = JSON.parse(this.session == "" ? null : this.session);
+
+    if (validation != null) {
+      // Convert the incoming Laravel error object to Javascript Array
+      this.errors = Object.keys(validation).map((i) => validation[i]);
+
+      this.errors.forEach((inner) =>
+        inner.forEach((error) => window.toastError(error, "", 3200))
+      );
+    }
   },
 };
 </script>

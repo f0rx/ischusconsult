@@ -37,7 +37,7 @@
     <div class="row m-b-10">
       <div class="col-sm-6">
         <div class="form-group m-b-0">
-          <label class="formLabel" for="email">What is your email?</label>
+          <label class="formLabel" for="email">Email Address</label>
           <input
             type="email"
             class="formInput"
@@ -57,12 +57,12 @@
           <input
             type="text"
             class="formInput"
+            required
             id="phone"
             name="phone"
-            required
             autocomplete="off"
             spellcheck="false"
-            v-model="$parent.form.phone"
+            @input="$parent.form.phone = $event.target.value.trim()"
           />
           <div class="help-block">
             Please enter a valid 11 digit Nigeria phone number without country
@@ -84,27 +84,23 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <div class="step-label">City</div>
-          <select
+      <div class="col-sm-6 col-md-6">
+        <div class="form-group m-b-0">
+          <label class="formLabel" for="city">City</label>
+          <input
+            type="city"
+            class="formInput"
+            required
             id="city"
             name="city"
-            class="selectpicker form-control"
-            required
-            aria-required=""
+            autocomplete="off"
+            spellcheck="false"
             v-model="$parent.form.city"
-          >
-            <option value="">Select an option</option>
-            <option value="Alabama ">Alabama</option>
-            <option value="Alaska ">Alaska</option>
-            <option value="Arizona ">Arizona</option>
-            <option value="Arkansas ">Arkansas</option>
-          </select>
+          />
         </div>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-sm-6 col-md-6">
         <div class="form-group">
           <div class="step-label">State</div>
           <select
@@ -116,10 +112,9 @@
             v-model="$parent.form.state"
           >
             <option value="">Select an option</option>
-            <option value="lagos">Lagos</option>
-            <option value="abuja">Abuja</option>
-            <option value="ogun ">Ogun</option>
-            <option value="rivers">Rivers</option>
+            <option v-for="(item, i) in states" :key="i" :value="item">
+              {{ item }}
+            </option>
           </select>
         </div>
       </div>
@@ -131,7 +126,45 @@
 export default {
   data() {
     return {
-      //
+      states: [
+        "Abia",
+        "Adamawa",
+        "Akwa Ibom",
+        "Anambra",
+        "Bauchi",
+        "Bayelsa",
+        "Benue",
+        "Borno",
+        "Cross River",
+        "Delta",
+        "Ebonyi",
+        "Edo",
+        "Ekiti",
+        "Enugu",
+        "Gombe",
+        "Imo",
+        "Jigawa",
+        "Kaduna",
+        "Kano",
+        "Katsina",
+        "Kebbi",
+        "Kogi",
+        "Kwara",
+        "Lagos",
+        "Nasarawa",
+        "Niger",
+        "Ogun",
+        "Ondo",
+        "Osun",
+        "Oyo",
+        "Plateau",
+        "Rivers",
+        "Sokoto",
+        "Taraba",
+        "Yobe",
+        "Zamfara",
+        "Abuja (FCT)",
+      ],
     };
   },
 };

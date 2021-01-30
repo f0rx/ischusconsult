@@ -1,8 +1,10 @@
 @push('styles')
-    <link href="{{ asset('css/plugins/datatables/css/jquery.datatables.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('css/plugins/datatables/css/jquery.datatables_themeroller.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('css/plugins/x-editable/bootstrap3-editable/css/bootstrap-editable.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/plugins/bootstrap-datepicker/css/datepicker3.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('css/plugins/datatables/css/jquery.datatables.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/plugins/datatables/css/jquery.datatables_themeroller.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ asset('css/plugins/x-editable/bootstrap3-editable/css/bootstrap-editable.css') }}" rel="stylesheet"
+        type="text/css">
+    <link href="{{ asset('css/plugins/bootstrap-datepicker/css/datepicker3.css') }}" rel="stylesheet" type="text/css" />
 @endpush
 
 @push('scripts')
@@ -45,6 +47,7 @@
                                         <th>Preferred Role</th>
                                         <th>Years of Experience</th>
                                         <th>Specialization</th>
+                                        <th>Documents</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -58,37 +61,48 @@
                                         <th>Preferred Role</th>
                                         <th>Years of Experience</th>
                                         <th>Specialization</th>
+                                        <th>Documents</th>
                                         <th></th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                     @foreach ($applications as $application)
-                                    <tr>
-                                        <td>{{ $application->application_id }}</td>
-                                        <td>{{ $application->first_name }} {{ $application->last_name }}</td>
-                                        <td>{{ $application->address }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($application->dob)->age }} years</td>
-                                        <td>{{ $application->city }}, {{ $application->state }}</td>
-                                        <td>{{ $application->preferred_role }}</td>
-                                        <td>{{ $application->total_years_of_xp }}</td>
-                                        <td>{{ $application->specialization }}</td>
-                                        <td>
-                                            <div class="btn-toolbar" role="toolbar" aria-label="Justified action buttons">
-                                                <a href="{{ route('admin.application.edit', ['application' => $application]) }}" class="btn btn-default btn-block">
-                                                    <span class="icon icon-pencil"></span>
-                                                </a>
+                                        <tr>
+                                            <td>{{ $application->application_id }}</td>
+                                            <td>{{ $application->first_name }} {{ $application->last_name }}</td>
+                                            <td>{{ $application->address }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($application->dob)->age }} years</td>
+                                            <td>{{ $application->city }}, {{ $application->state }}</td>
+                                            <td>{{ $application->preferred_role }}</td>
+                                            <td>{{ $application->total_years_of_xp }}</td>
+                                            <td>{{ $application->specialization }}</td>
+                                            <td>
+                                                @foreach ($application->documents as $doc)
+                                                    <a
+                                                        href="{{ route('admin.application.download', ['document' => $doc]) }}">
+                                                        Download CV </a>
+                                                @endforeach
+                                            </td>
+                                            <td>
+                                                <div class="btn-toolbar" role="toolbar"
+                                                    aria-label="Justified action buttons">
+                                                    <a href="{{ route('admin.application.edit', ['application' => $application]) }}"
+                                                        class="btn btn-default btn-block">
+                                                        <span class="icon icon-pencil"></span>
+                                                    </a>
 
-                                                <a type="button" class="btn btn-danger btn-block">
-                                                    <form method="POST" action="{{ route('admin.application.delete', ['application' => $application]) }}">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <span class="icon icon-trash" onclick="event.preventDefault();
+                                                    <a type="button" class="btn btn-danger btn-block">
+                                                        <form method="POST"
+                                                            action="{{ route('admin.application.delete', ['application' => $application]) }}">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <span class="icon icon-trash" onclick="event.preventDefault();
                                                             this.closest('form').submit();"></span>
-                                                    </form>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                                        </form>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>

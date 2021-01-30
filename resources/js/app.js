@@ -10,6 +10,10 @@ require('alpinejs');
 
 window.Vue = require('vue').default;
 
+const VModal = require('vue-js-modal');
+
+Vue.use(VModal);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -23,17 +27,17 @@ const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 // Toast Configuration
-window.toastTimeout = 5600;
+window.toastTimeout = 4500;
 // window.toastTimeout = 34948300;
 
 window.Emitter = new Vue();
 
-window.toastSuccess = (title, body) => {
-    window.Emitter.$emit('toast-success', title, body);
+window.toastSuccess = (title, body, timeout) => {
+    window.Emitter.$emit('toast-success', title, body, timeout);
 };
 
-window.toastError = (title, body) => {
-    window.Emitter.$emit('toast-error', title, body);
+window.toastError = (title, body, timeout) => {
+    window.Emitter.$emit('toast-error', title, body, timeout);
 };
 
 /**
@@ -41,7 +45,6 @@ window.toastError = (title, body) => {
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-const app = new Vue({
+new Vue({
     el: '#app',
 });

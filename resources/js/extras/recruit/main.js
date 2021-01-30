@@ -98,7 +98,7 @@ var lunaWizard = {
     start: function () {
         var _0xd34ax2 = this;
         $('.luna-signup-container input[type=\'checkbox\'],.luna-signup-container input[type=\'radio\'], .select')['uniform']();
-        $('.luna-signup-container input[name="phone"],.luna-signup-container input[name="tn_phone"]')['mask']('0000 000 0000');
+        $('.luna-signup-container input[name="phone"],.luna-signup-container input[name="phone"]')['mask']('0000 000 0000');
         $('.datepicker')['datepicker']()['on']('changeDate', function (_0xd34ax15) {
             $(this)['datepicker']('hide');
             $(this)['focus']()['parents']('.form-group')['find']('.errorIcon')['remove']()

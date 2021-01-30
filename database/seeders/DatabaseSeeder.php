@@ -60,6 +60,8 @@ class DatabaseSeeder extends Seeder
         // Seed sample applications
         $this->call(JobApplicationSeeder::class);
 
+        $this->call(FileDocumentSeeder::class);
+
         // Re enable all mass assignment restrictions
         Model::reguard();
     }

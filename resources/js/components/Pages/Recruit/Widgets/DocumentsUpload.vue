@@ -2,7 +2,7 @@
   <div>
     <div class="col-md-12">
       <div class="form-group">
-        <div class="step-label">Attach you CV</div>
+        <div class="step-label">Attach your CV</div>
         <input
           type="file"
           id="cv"
@@ -17,11 +17,11 @@
 
     <div class="col-md-12">
       <div class="form-group">
-        <div class="step-label">Attach any other supporting document</div>
+        <div class="step-label">Attach other supporting documents</div>
         <input
           type="file"
-          id="other"
-          name="other"
+          id="others"
+          name="others"
           class="formInput"
           autocomplete="off"
           spellcheck="false"

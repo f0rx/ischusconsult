@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\FileDocumentController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -64,6 +65,10 @@ Route::domain('admin.' . config('app.site_url'))
             Route::put('/{application}', [JobApplicationController::class, 'update'])
                 ->middleware(['auth'])
                 ->name('update');
+
+            Route::get('/{document}/download', [FileDocumentController::class, 'show'])
+                ->middleware(['auth'])
+                ->name('download');
 
             Route::put('/{application}/restore', [JobApplicationController::class, 'restore'])
                 ->middleware(['auth', 'role:super-admin|admin'])

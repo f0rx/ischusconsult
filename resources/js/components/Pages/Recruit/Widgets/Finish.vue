@@ -53,11 +53,21 @@
       <div class="col-md-9 col-sm-6 col-xs-12 confirm-text gender"></div>
     </div>
 
-    <div class="row fadeTop">
+    <div class="row fadeTop" v-show="$parent.form.dob != null">
       <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
         Date of Birth
       </div>
       <div class="col-md-9 col-sm-6 col-xs-12 confirm-text dob"></div>
+    </div>
+
+    <div
+      class="row fadeTop"
+      v-show="$parent.form.age != '' || $parent.form.age != ''"
+    >
+      <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
+        Age
+      </div>
+      <div class="col-md-9 col-sm-6 col-xs-12 confirm-text age"></div>
     </div>
 
     <div class="row fadeTop">
@@ -98,13 +108,6 @@
       <div
         class="col-md-9 col-sm-6 col-xs-12 confirm-text recent_job_title"
       ></div>
-    </div>
-
-    <div class="row fadeTop">
-      <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
-        Highest Role
-      </div>
-      <div class="col-md-9 col-sm-6 col-xs-12 confirm-text highest_role"></div>
     </div>
 
     <div class="row fadeTop">
