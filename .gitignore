@@ -17,3 +17,4 @@ php.ini
 error_log
 composer.phar
 public/.htaccess
+public/php.ini
