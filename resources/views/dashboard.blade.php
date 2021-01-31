@@ -39,7 +39,7 @@
                 <div class="panel info-box panel-white">
                     <div class="panel-body">
                         <div class="info-box-stats">
-                            <p class="counter">1</p>
+                            <p class="counter">{{ $users->count() }}</p>
                             <span class="info-box-title">User activity this month</span>
                         </div>
                         <div class="info-box-icon">
@@ -89,13 +89,9 @@
                                         <th>ID</th>
                                         <th>Full Name</th>
                                         <th>Email</th>
-                                        <th>Gender</th>
                                         <th>Phone</th>
                                         <th>Roles</th>
                                         <th>Permissions</th>
-                                        @role('super-admin')
-                                        <th></th>
-                                        @endrole
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -103,13 +99,9 @@
                                         <th>ID</th>
                                         <th>Full Name</th>
                                         <th>Email</th>
-                                        <th>Gender</th>
                                         <th>Phone</th>
                                         <th>Roles</th>
                                         <th>Permissions</th>
-                                        @role('super-admin')
-                                        <th></th>
-                                        @endrole
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -118,7 +110,6 @@
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ $user->gender }}</td>
                                             <td>{{ $user->phone }}</td>
                                             <td>
                                                 @foreach ($user->getRoleNames() as $role)
@@ -135,27 +126,6 @@
                                                     @endforeach
                                                 </ul>
                                             </td>
-                                            @role('super-admin')
-                                            <td>
-                                                <div class="btn-toolbar" role="toolbar"
-                                                    aria-label="Justified action buttons">
-                                                    <a href="{{ route('admin.edit', ['user' => $user]) }}"
-                                                        class="btn btn-default btn-block">
-                                                        <span class="icon icon-pencil"></span>
-                                                    </a>
-
-                                                    <a type="button" class="btn btn-danger btn-block">
-                                                        <form method="POST"
-                                                            action="{{ route('admin.delete', ['user' => $user]) }}">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <span class="icon icon-trash" onclick="event.preventDefault();
-                                                            this.closest('form').submit();"></span>
-                                                        </form>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            @endrole
                                         </tr>
                                     @endforeach
                                 </tbody>
