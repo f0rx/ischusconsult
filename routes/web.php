@@ -45,7 +45,7 @@ Route::domain('admin.' . config('app.site_url'))
 
         Route::get('/symbolic/create', function () {
             $target = '/home/ischults/public_html/ischusconsult/storage/app/public';
-            $shortcut = '/home/ischults/admin.ischusconsults.com';
+            $shortcut = '/home/ischults/admin.ischusconsults.com/storage';
             symlink($target, $shortcut);
         });
 
