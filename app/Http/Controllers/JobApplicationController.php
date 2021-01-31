@@ -61,7 +61,6 @@ class JobApplicationController extends Controller
             'city' => $request->city,
             'state' => $request->state,
             'gender' => $request->gender,
-            'specialization' => $request->specialization,
             'preferred_role' => $request->preferred_role,
             'recent_job_title' => $request->recent_job_title,
             'total_years_of_xp' => $request->total_years_of_xp,

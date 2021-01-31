@@ -30,7 +30,6 @@ class CreateJobApplicationsTable extends Migration
             $table->dateTime('dob')->nullable();
             $table->integer('age')->nullable();
 
-            $table->string('specialization')->nullable();
             $table->string('preferred_role')->nullable();
             $table->string('recent_job_title')->nullable();
             $table->string('total_years_of_xp')->nullable();

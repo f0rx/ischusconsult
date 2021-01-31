@@ -28,7 +28,6 @@ class JobApplication extends Model
         'city',
         'state',
         'gender',
-        'specialization',
         'preferred_role',
         'recent_job_title',
         'total_years_of_xp',

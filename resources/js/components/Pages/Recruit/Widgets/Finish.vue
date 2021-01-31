@@ -85,16 +85,7 @@
 
     <div class="row fadeTop">
       <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
-        Specialization
-      </div>
-      <div
-        class="col-md-9 col-sm-6 col-xs-12 confirm-text specialization"
-      ></div>
-    </div>
-
-    <div class="row fadeTop">
-      <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
-        Preferred Role
+        Your preferred job option
       </div>
       <div
         class="col-md-9 col-sm-6 col-xs-12 confirm-text preferred_role"
@@ -164,7 +155,7 @@
           type="submit"
           class="btn btn-green btn-rounded finishBtn"
           @click="$parent.submit($event)"
-          >All done! Finish.</a
+          >Thank you</a
         >
       </div>
     </div>

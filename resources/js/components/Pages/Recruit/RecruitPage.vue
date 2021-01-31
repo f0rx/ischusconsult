@@ -87,7 +87,6 @@ export default {
     "city",
     "state",
     "gender",
-    "specialization",
     "preferredRole",
     "recentJobTitle",
     "totalYearsOfXp",
@@ -108,7 +107,6 @@ export default {
         gender: "",
         dob: null,
         age: null,
-        specialization: "",
         preferred_role: "",
         recent_job_title: "",
         total_years_of_xp: "",
@@ -124,7 +122,6 @@ export default {
       var ageDate = new Date(ageDifMs);
       return Math.abs(ageDate.getUTCFullYear() - 1970);
     },
-    _calculateDoB(age) {},
     submit(event) {
       event.preventDefault();
       if (this.form.age == null) {
@@ -153,8 +150,6 @@ export default {
     this.form.gender = typeof this.gender != "undefined" ? this.gender : null;
     this.form.dob = typeof this.dob != "undefined" ? this.dob : null;
     this.form.age = typeof this.age != "undefined" ? this.age : null;
-    this.form.specialization =
-      typeof this.specialization != "undefined" ? this.specialization : null;
     this.form.preferred_role =
       typeof this.preferred_role != "undefined" ? this.preferred_role : null;
     this.form.recent_job_title =

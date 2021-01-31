@@ -12,7 +12,10 @@
           spellcheck="false"
           accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         />
-        <error-widget :text="cv.error" v-if="cv.hasError"></error-widget>
+        <error-widget
+          :text="cv.error"
+          v-if="cv.hasError && typeof document.error != 'undefined'"
+        ></error-widget>
       </div>
     </div>
 
@@ -31,7 +34,7 @@
         />
         <error-widget
           :text="documents.error"
-          v-if="documents.hasError"
+          v-if="documents.hasError && typeof document.error != 'undefined'"
         ></error-widget>
       </div>
     </div>

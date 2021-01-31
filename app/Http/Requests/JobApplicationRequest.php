@@ -38,7 +38,6 @@ class JobApplicationRequest extends FormRequest
             'city' => 'string|required',
             'state' => 'string|required',
             'gender' => 'string|required',
-            'specialization' => 'string|required',
             'preferred_role' => 'string|required',
             'recent_job_title' => 'string',
             'total_years_of_xp' => 'string|required',
