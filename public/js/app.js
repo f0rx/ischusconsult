@@ -3866,6 +3866,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["action", "csrfToken", "session", "firstName", "lastName", "email", "phone", "maritalStatus", "age", "address", "city", "state", "gender", "specialization", "preferredRole", "recentJobTitle", "totalYearsOfXp", "summary"],
   data: function data() {
@@ -4622,20 +4624,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -46338,10 +46326,12 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "luna-signup-left" }, [
-      _c("img", {
-        staticClass: "luna-signup-logo img-responsive",
-        attrs: { src: "/images/logo.png", alt: "logo" }
-      }),
+      _c("a", { attrs: { href: "https://ischusconsults.com" } }, [
+        _c("img", {
+          staticClass: "luna-signup-logo img-responsive",
+          attrs: { src: "/images/logo.png", alt: "logo" }
+        })
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "luna-navigation" }, [
         _c("a", { staticClass: "toPrev prevStep" }, [
@@ -47668,15 +47658,15 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h2", { staticClass: "step-title" }, [_vm._v("Work Experience")]),
+    _c("h2", { staticClass: "step-title" }, [_vm._v("Professional Details")]),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-6" }, [
+      _c("div", { staticClass: "col-sm-6 col-md-6" }, [
         _c("div", { staticClass: "form-group" }, [
           _c(
             "label",
-            { staticClass: "formLabel", attrs: { for: "specialization" } },
-            [_vm._v("Specialisation")]
+            { staticClass: "formLabel", attrs: { for: "recent_job_title" } },
+            [_vm._v("Most Recent Job Title")]
           ),
           _vm._v(" "),
           _c("input", {
@@ -47684,20 +47674,20 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.$parent.form.specialization,
-                expression: "$parent.form.specialization"
+                value: _vm.$parent.form.recent_job_title,
+                expression: "$parent.form.recent_job_title"
               }
             ],
             staticClass: "formInput",
             attrs: {
               type: "text",
               required: "",
-              id: "specialization",
-              name: "specialization",
+              id: "recent_job_title",
+              name: "recent_job_title",
               autocomplete: "off",
               spellcheck: "false"
             },
-            domProps: { value: _vm.$parent.form.specialization },
+            domProps: { value: _vm.$parent.form.recent_job_title },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
@@ -47705,7 +47695,7 @@ var render = function() {
                 }
                 _vm.$set(
                   _vm.$parent.form,
-                  "specialization",
+                  "recent_job_title",
                   $event.target.value
                 )
               }
@@ -47714,9 +47704,11 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-6" }, [
+      _c("div", { staticClass: "col-sm-6 col-md-6" }, [
         _c("div", { staticClass: "form-group" }, [
-          _c("div", { staticClass: "step-label" }, [_vm._v("Preferred Role")]),
+          _c("div", { staticClass: "step-label" }, [
+            _vm._v("Your preferred job option")
+          ]),
           _vm._v(" "),
           _c(
             "select",
@@ -47769,43 +47761,6 @@ var render = function() {
           )
         ])
       ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "form-group" }, [
-      _c(
-        "label",
-        { staticClass: "formLabel", attrs: { for: "recent_job_title" } },
-        [_vm._v("Most Recent Job Title")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.$parent.form.recent_job_title,
-            expression: "$parent.form.recent_job_title"
-          }
-        ],
-        staticClass: "formInput",
-        attrs: {
-          type: "text",
-          required: "",
-          id: "recent_job_title",
-          name: "recent_job_title",
-          autocomplete: "off",
-          spellcheck: "false"
-        },
-        domProps: { value: _vm.$parent.form.recent_job_title },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.$parent.form, "recent_job_title", $event.target.value)
-          }
-        }
-      })
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [

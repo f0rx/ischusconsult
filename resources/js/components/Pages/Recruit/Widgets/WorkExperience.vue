@@ -1,27 +1,29 @@
 <template>
   <div>
-    <h2 class="step-title">Work Experience</h2>
+    <h2 class="step-title">Professional Details</h2>
 
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-6 col-md-6">
         <div class="form-group">
-          <label class="formLabel" for="specialization">Specialisation</label>
+          <label class="formLabel" for="recent_job_title"
+            >Most Recent Job Title</label
+          >
           <input
             type="text"
             class="formInput"
             required
-            id="specialization"
-            name="specialization"
+            id="recent_job_title"
+            name="recent_job_title"
             autocomplete="off"
             spellcheck="false"
-            v-model="$parent.form.specialization"
+            v-model="$parent.form.recent_job_title"
           />
         </div>
       </div>
 
-      <div class="col-sm-6">
+      <div class="col-sm-6 col-md-6">
         <div class="form-group">
-          <div class="step-label">Preferred Role</div>
+          <div class="step-label">Your preferred job option</div>
           <select
             id="preferred_role"
             name="preferred_role"
@@ -37,22 +39,6 @@
           </select>
         </div>
       </div>
-    </div>
-
-    <div class="form-group">
-      <label class="formLabel" for="recent_job_title"
-        >Most Recent Job Title</label
-      >
-      <input
-        type="text"
-        class="formInput"
-        required
-        id="recent_job_title"
-        name="recent_job_title"
-        autocomplete="off"
-        spellcheck="false"
-        v-model="$parent.form.recent_job_title"
-      />
     </div>
 
     <div class="row">

@@ -2,11 +2,13 @@
   <div class="container">
     <div class="row">
       <div class="luna-signup-left">
-        <img
-          class="luna-signup-logo img-responsive"
-          src="/images/logo.png"
-          alt="logo"
-        />
+        <a href="https://ischusconsults.com">
+          <img
+            class="luna-signup-logo img-responsive"
+            src="/images/logo.png"
+            alt="logo"
+          />
+        </a>
         <div class="luna-navigation">
           <a class="toPrev prevStep"><i class="icon icon-arrow-up2"></i></a>
           <ul class="dots"></ul>
