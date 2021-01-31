@@ -8,11 +8,7 @@ require('./bootstrap');
 
 require('alpinejs');
 
-window.Vue = require('vue').default;
-
-const VModal = require('vue-js-modal');
-
-Vue.use(VModal);
+import Vue from 'vue';
 
 /**
  * The following block of code may be used to automatically register your
@@ -45,6 +41,8 @@ window.toastError = (title, body, timeout) => {
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.config.productionTip = false;
+
 new Vue({
     el: '#app',
 });

@@ -42,8 +42,8 @@ class JobApplicationRequest extends FormRequest
             'preferred_role' => 'string|required',
             'recent_job_title' => 'string',
             'total_years_of_xp' => 'string|required',
-            'cv' => 'file|max:2048|csv,txt,xlx,xls,pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessing,application/vnd.ms-fontobject',
-            'others' => 'file|max:2048|csv,txt,xlx,xls,pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessing,application/vnd.ms-fontobject',
+            'cv' => 'required|max:2048|mimes:pdf,doc,docx',
+            'documents' => 'max:2048|mimes:image,pdf,doc,docx,csv,xlx',
         ];
     }
 }

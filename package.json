@@ -30,7 +30,6 @@
         "moment": "^2.29.1",
         "open-sans-fonts": "^1.6.2",
         "toastr": "^2.1.4",
-        "uuid": "^8.3.2",
-        "vue-js-modal": "^2.0.0-rc.6"
+        "uuid": "^8.3.2"
     }
 }

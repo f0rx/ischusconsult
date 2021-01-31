@@ -79,9 +79,12 @@
                                             <td>{{ $application->specialization }}</td>
                                             <td>
                                                 @foreach ($application->documents as $doc)
-                                                    <a
-                                                        href="{{ route('admin.application.download', ['document' => $doc]) }}">
+
+                                                    <a href="{{ asset('storage/' . $doc->full_path) }}">
                                                         Download CV </a>
+                                                    {{-- <a
+                                                        href="{{ route('admin.application.download', ['document' => $doc]) }}">
+                                                        Download CV </a> --}}
                                                 @endforeach
                                             </td>
                                             <td>

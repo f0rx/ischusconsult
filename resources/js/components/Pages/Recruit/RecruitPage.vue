@@ -170,8 +170,12 @@ export default {
       // Convert the incoming Laravel error object to Javascript Array
       this.errors = Object.keys(validation).map((i) => validation[i]);
 
+      // Show toastr if there are form errors
       this.errors.forEach((inner) =>
-        inner.forEach((error) => window.toastError(error, "", 3200))
+        inner.forEach((error) =>
+          // If errors.length <= 3 increase duration
+          window.toastError(error, "", this.errors.length <= 3 ? 7600 : 3200)
+        )
       );
     }
   },

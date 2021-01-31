@@ -45,6 +45,8 @@ class JobApplicationController extends Controller
         // Generate an application ID
         $application_id = Str::upper(Str::random(11));
 
+        // $jobApplication = JobApplication::whereApplicationId('IGTPJHVKXWS')->firstOrFail();
+
         // Store a new application
         $jobApplication = JobApplication::create([
             'application_id' => $application_id,
@@ -66,17 +68,13 @@ class JobApplicationController extends Controller
             'summary' => $request->summary,
         ]);
 
-        // // Get uploaded CV document
-        // $cv = $request->cv;
+        if ($request->cv != null) {
+            $this->uploadCV($request, $jobApplication);
+        }
 
-        // // Store uploaded CV document (set visibility = PUBLIC)
-        // // $path = Storage::putFileAs('documents', $cv, $application_id . '.' . $cv->getClientOriginalExtension(), 'public');
-        // $path = $cv->storePubliclyAs(
-        //     'public' . '/' . $application_id,
-        //     $application_id . '.' . $cv->getClientOriginalExtension(),
-        // );
-
-        // $cvUpload = $jobApplication->documents();
+        if ($request->documents != null && count($request->documents) > 0) {
+            // $this->uploadDocuments($request, $jobApplication);
+        }
 
         session(['success-position' => 'top']);
         return redirect()->back()->with('success-title', 'Application saved!');
@@ -137,5 +135,38 @@ class JobApplicationController extends Controller
     public function destroy(JobApplication $application)
     {
         dd('DESTROY item here and flash session');
+    }
+
+    private function uploadCV(Request $request, JobApplication $jobApplication)
+    {
+        // Get uploaded CV document
+        $application_id = $jobApplication->application_id;
+        $cv = $request->cv;
+        $computedCVFileName = 'CV_-_' . $application_id;
+        $computedCVFileExtension = '.' . $cv->getClientOriginalExtension();
+        $computedCVFilePath = $application_id . '/' . 'CV' . '/' . $computedCVFileName . $computedCVFileExtension;
+
+        // Store uploaded CV document (set visibility = PUBLIC)
+        $path = $cv->storePubliclyAs(
+            'public' . '/' . $application_id . '/' . 'CV',
+            $computedCVFileName . $computedCVFileExtension,
+        );
+
+        // Update file visibility
+        Storage::setVisibility($path, 'public');
+
+        // Populate database
+        $jobApplication->documents()->create([
+            'name' => $computedCVFileName,
+            'extension' => $computedCVFileExtension,
+            'full_path' => $computedCVFilePath,
+            'application_id' => $application_id,
+            'size' => Storage::size($path),
+        ]);
+    }
+
+    private function uploadDocuments(Request $request, JobApplication $jobApplication)
+    {
+        dd($request->documents);
     }
 }

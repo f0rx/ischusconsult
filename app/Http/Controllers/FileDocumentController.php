@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FileDocument;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FileDocumentController extends Controller
 {
@@ -46,7 +47,8 @@ class FileDocumentController extends Controller
      */
     public function show(FileDocument $document)
     {
-        dd('Start document download');
+        // Storage::files($directory);
+        return Storage::download(storage_path($document->full_path));
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Models\FileDocument;
 use App\Models\JobApplication;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Storage;
 
 class FileDocumentFactory extends Factory
 {
@@ -62,9 +63,16 @@ class FileDocumentFactory extends Factory
                 // }
 
                 if ($job != null) {
+                    // $fullPath = $job->application_id . '/' . $job->application_id . '.docx';
+                    $fakePath = 'fake/CV/doc.docx';
+                    // Copy fake file to new fake path
+                    // Storage::copy(public_path('doc.docx'), public_path($fullPath));
+
+                    // Storage::setVisibility($fakePath, 'public');
+
                     $doc->update([
                         'name' => $job->application_id,
-                        'full_path' => FileDocument::FAKE_FILE_DOCUMENTS_ROOT . '/doc.docx',
+                        'full_path' => $fakePath,
                         'job_application_id' => $job->id,
                         'application_id' => $job->application_id
                     ]);

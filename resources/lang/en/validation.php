@@ -131,9 +131,47 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'first_name' => [
+            'required' => 'Please provide your first name.',
+            'min' => 'First name must be more than 2 characters.',
+            'string' => 'First name must be a word'
         ],
+        'last_name' => [
+            'required' => 'Please provide your last name.',
+            'min' => 'Last name must be more than 2 characters.',
+            'string' => 'Last name must be a word'
+        ],
+        'email' => [
+            'required' => 'E-mail address is required.',
+        ],
+        'marital_status' => [
+            'required' => 'Provide your marital status.',
+        ],
+        'address' => [
+            'required' => 'What\'s your Home Address?',
+        ],
+        'phone' => [
+            'required' => 'Provide your phone number',
+        ],
+        'specialization' => [
+            'required' => 'Provide your specialization.',
+        ],
+        'preferred_role' => [
+            'required' => 'What is your preferred role?',
+        ],
+        'recent_job_title' => [
+            'required' => 'Your recent job title is required.',
+        ],
+        'total_years_of_xp' => [
+            'required' => 'Years of experience is required.',
+        ],
+        'cv' => [
+            'required' => 'Please upload your CV / Resume.',
+            'max' => 'Your CV may not be greater than :max kilobytes.'
+        ],
+        'document' => [
+            'max' => 'Documents may not be greater than :max kilobytes.'
+        ]
     ],
 
     /*
@@ -147,6 +185,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'first_name' => "First name",
+        'last_name' => "Last name",
+        'email' => "E-mail address",
+    ],
 
 ];

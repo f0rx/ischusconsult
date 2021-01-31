@@ -27,13 +27,6 @@
 
     <div class='luna-signup-container' id="app">
 
-        {{-- <a href="{{ route('application./') }}">Download file</a> --}}
-
-        {{-- <a
-            href="{{ Illuminate\Support\Facades\Storage::download('public/documents/ISCAH7XNUTO.docx') }}">Download
-            file</a> --}}
-
-
         <div class="luna-signup-left-overlay"></div>
 
         <toast-success title="{{ session('success-title') ?? ($successTitle ?? '') }}"
