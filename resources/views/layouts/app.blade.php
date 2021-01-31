@@ -9,6 +9,8 @@
     <meta name="keywords" content="resume,CV,portfolio,Resume,cv,job,application,job-application" />
     <meta name="author" content="Brendan Ejike (@@f0rx)" />
 
+    <link rel="shortcut icon" href="{{ asset('images/logo2.png') }}">
+
     <title>{{ config('app.name') }}</title>
 
     <!-- Fonts -->
@@ -83,14 +85,12 @@
     <script src="{{ asset('js/plugins/switchery/switchery.min.js') }}"></script>
     <script src="{{ asset('js/plugins/uniform/jquery.uniform.min.js') }}"></script>
     <script src="{{ asset('js/plugins/offcanvasmenueffects/js/classie.js') }}"></script>
-    {{-- <script src="{{ asset('js/plugins/offcanvasmenueffects/js/main.js') }}"></script>
-    --}}
+    {{-- <script src="{{ asset('js/plugins/offcanvasmenueffects/js/main.js') }}"></script> --}}
     <script src="{{ asset('js/plugins/waves/waves.min.js') }}"></script>
     <script src="{{ asset('js/plugins/3d-bold-navigation/js/main.js') }}"></script>
     @stack('scripts')
     <!-- Main JS -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script>
-    --}}
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/admin.js') }}"></script>
 </body>

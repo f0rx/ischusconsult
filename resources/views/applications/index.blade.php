@@ -32,14 +32,14 @@
             <div class="col-md-12">
                 <div class="panel panel-white">
                     <div class="panel-heading clearfix">
-                        <h4 class="panel-title">Basic example</h4>
+                        <h4 class="panel-title">Job Applications</h4>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table id="applicants-listing" class="table" style="width: 100%; cellspacing: 0;">
                                 <thead>
                                     <tr>
-                                        <th>IDs</th>
+                                        <th>ID</th>
                                         <th>Full Name</th>
                                         <th>Address</th>
                                         <th>Applicant's Age</th>
@@ -71,7 +71,8 @@
                                             <td>{{ $application->application_id }}</td>
                                             <td>{{ $application->first_name }} {{ $application->last_name }}</td>
                                             <td>{{ $application->address }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($application->dob)->age }} years</td>
+                                            <td>{{ $application->age ?? \Carbon\Carbon::parse($application->dob)->age }}
+                                                years</td>
                                             <td>{{ $application->city }}, {{ $application->state }}</td>
                                             <td>{{ $application->preferred_role }}</td>
                                             <td>{{ $application->total_years_of_xp }}</td>
@@ -91,6 +92,7 @@
                                                         <span class="icon icon-pencil"></span>
                                                     </a>
 
+                                                    @role("super-admin|admin")
                                                     <a type="button" class="btn btn-danger btn-block">
                                                         <form method="POST"
                                                             action="{{ route('admin.application.delete', ['application' => $application]) }}">
@@ -100,6 +102,7 @@
                                                             this.closest('form').submit();"></span>
                                                         </form>
                                                     </a>
+                                                    @endrole
                                                 </div>
                                             </td>
                                         </tr>

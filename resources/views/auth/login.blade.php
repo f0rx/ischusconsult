@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/" class="logo-name text-lg text-center">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-application-logo class="w-8 h-8 fill-current text-gray-500" />
             </a>
         </x-slot>
 
@@ -20,11 +20,13 @@
             @csrf
 
             <div class="form-group">
-                <x-input id="email" type="email" name="email" placeholder="Email" :value="old('email')" required autofocus />
+                <x-input id="email" type="email" name="email" placeholder="Email" :value="old('email')" required
+                    autofocus />
             </div>
 
             <div class="form-group">
-                <x-input id="password" type="password" name="password" placeholder="Password" :value="old('password')" required autocomplete="current-password"/>
+                <x-input id="password" type="password" name="password" placeholder="Password" :value="old('password')"
+                    required autocomplete="current-password" />
             </div>
 
             <div class="form-group">

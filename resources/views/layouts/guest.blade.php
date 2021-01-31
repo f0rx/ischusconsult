@@ -9,6 +9,8 @@
     <meta name="keywords" content="resume,CV,portfolio,Resume,cv" />
     <meta name="author" content="Brendan Ejike (@@f0rx)" />
 
+    <link rel="shortcut icon" href="{{ asset('images/logo2.png') }}">
+
     <title>{{ config('app.name', 'Ischus Consult') }}</title>
 
     <!-- Fonts -->
