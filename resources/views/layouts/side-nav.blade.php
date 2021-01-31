@@ -4,11 +4,8 @@
             <div class="sidebar-profile">
                 <a href="javascript:void(0);" id="profile-menu-link">
                     <div class="sidebar-profile-image">
-                        <img src="{{ str_contains(Auth::user()->gender, 'female')
-                            ? asset('images/default-user-female.png')
-                            : asset('images/default-user-male.png') }}"
-                            class="img-circle img-responsive"
-                            alt="{{ Auth::user()->name }}'s Photo">
+                        <img src="{{ str_contains(Auth::user()->gender, 'female') ? asset('images/default-user-female.png') : asset('images/default-user-male.png') }}"
+                            class="img-circle img-responsive" alt="{{ Auth::user()->name }}'s Photo">
                     </div>
                     <div class="sidebar-profile-details">
                         <span>{{ Auth::user()->name }}<br>
@@ -20,11 +17,17 @@
         </div>
         <ul class="menu accordion-menu">
 
-            <li><a href="{{ route('admin.dashboard') }}" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
+            <li><a href="{{ route('admin.dashboard') }}" class="waves-effect waves-button"><span
+                        class="menu-icon glyphicon glyphicon-home"></span>
+                    <p>Dashboard</p>
+                </a></li>
 
-            <li><a href="{{ route('admin.show', ['user' => Auth::user()]) }}" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Profile</p></a></li>
+            {{-- <li><a href="{{ route('admin.show', ['user' => Auth::user()]) }}" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Profile</p></a></li> --}}
 
-            <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-briefcase"></span><p>Jobs</p><span class="arrow"></span></a>
+            <li class="droplink"><a href="#" class="waves-effect waves-button"><span
+                        class="menu-icon glyphicon glyphicon-briefcase"></span>
+                    <p>Jobs</p><span class="arrow"></span>
+                </a>
                 <ul class="sub-menu">
                     <li><a href="{{ route('admin.application.index') }}">Applications</a></li>
                 </ul>
@@ -33,8 +36,7 @@
             <li>
                 <form method="POST" action="{{ route('admin.logout') }}">
                     @csrf
-                    <a href="{{ route('admin.logout') }}" class="waves-effect waves-button"
-                            onclick="event.preventDefault();
+                    <a href="{{ route('admin.logout') }}" class="waves-effect waves-button" onclick="event.preventDefault();
                                 this.closest('form').submit();">
                         <span class="menu-icon glyphicon glyphicon-log-out"></span>
                         <p>Logout</p>

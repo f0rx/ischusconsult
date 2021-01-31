@@ -16,6 +16,10 @@
         </div>
       </div>
 
+      <v-modal v-model="modal.isOpen" title="My first modal">
+        <p>Modal content goes here...</p>
+      </v-modal>
+
       <div class="luna-signup-right">
         <div class="container-fluid">
           <div class="steps-count">
@@ -53,6 +57,7 @@
               </div>
             </div>
           </form>
+
           <div class="button-container">
             <div>
               <a
@@ -94,6 +99,11 @@ export default {
   ],
   data() {
     return {
+      modal: {
+        isOpen: false,
+        title: null,
+        html: null,
+      },
       errors: [],
       form: {
         first_name: "",
@@ -126,9 +136,6 @@ export default {
       event.preventDefault();
       if (this.form.age == null) {
         this.form.age = this._calculateAge(this.form.dob);
-      }
-      if (this.form.dob == null) {
-        this.form.dob = this._calculateDoB(this.form.age);
       }
       if (this.form.agreement) this.$refs.signupForm.submit();
     },

@@ -5,7 +5,7 @@
     :class="
       typeof position != 'undefined' && position != null && position != ''
         ? `toast-${position}-right`
-        : 'toast-bottom-right'
+        : 'toast-top-right'
     "
     v-show="errors.length > 0"
   >

@@ -31,9 +31,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-white">
-                    <div class="panel-heading clearfix">
-                        <h4 class="panel-title">Job Applications</h4>
-                    </div>
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table id="applicants-listing" class="table" style="width: 100%; cellspacing: 0;">
@@ -42,12 +39,13 @@
                                         <th>ID</th>
                                         <th>Full Name</th>
                                         <th>Address</th>
-                                        <th>Applicant's Age</th>
+                                        <th>Age</th>
                                         <th>City, State</th>
                                         <th>Preferred Role</th>
                                         <th>Years of Experience</th>
-                                        <th>Specialization</th>
-                                        <th>Documents</th>
+                                        <th>Most Recent Job Title</th>
+                                        <th>CV (Click to Download)</th>
+                                        <th>Supporting Documents</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -56,12 +54,13 @@
                                         <th>ID</th>
                                         <th>Full Name</th>
                                         <th>Address</th>
-                                        <th>Age (DOB)</th>
+                                        <th>Age</th>
                                         <th>City, State</th>
                                         <th>Preferred Role</th>
                                         <th>Years of Experience</th>
-                                        <th>Specialization</th>
-                                        <th>Documents</th>
+                                        <th>Most Recent Job Title</th>
+                                        <th>CV (Click to Download)</th>
+                                        <th>Supporting Documents</th>
                                         <th></th>
                                     </tr>
                                 </tfoot>
@@ -76,21 +75,23 @@
                                             <td>{{ $application->city }}, {{ $application->state }}</td>
                                             <td>{{ $application->preferred_role }}</td>
                                             <td>{{ $application->total_years_of_xp }}</td>
-                                            <td>{{ $application->specialization }}</td>
+                                            <td>{{ Str::title($application->recent_job_title) }}</td>
                                             <td>
                                                 @foreach ($application->documents as $doc)
 
                                                     <a href="{{ asset('storage/' . $doc->full_path) }}">
                                                         Download CV </a>
-                                                    {{-- <a
-                                                        href="{{ route('admin.application.download', ['document' => $doc]) }}">
-                                                        Download CV </a> --}}
                                                 @endforeach
+                                            </td>
+                                            <td>
+                                                <supporting-documents anchor-text="View other supporting documents"
+                                                    incoming="{{ $application->documents }}">
+                                                </supporting-documents>
                                             </td>
                                             <td>
                                                 <div class="btn-toolbar" role="toolbar"
                                                     aria-label="Justified action buttons">
-                                                    <a href="{{ route('admin.application.edit', ['application' => $application]) }}"
+                                                    <a href="{{ route('application.edit', ['application' => $application]) }}"
                                                         class="btn btn-default btn-block">
                                                         <span class="icon icon-pencil"></span>
                                                     </a>

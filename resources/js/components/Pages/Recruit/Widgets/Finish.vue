@@ -147,7 +147,12 @@
               type="checkbox"
               v-model="$parent.form.agreement"
             />I agree to the
-            <a href="#" target="_blank">terms &amp; conditions.</a>.
+            <a
+              href="#"
+              @click="$event.preventDefault(), ($parent.modal.isOpen = true)"
+              target="_blank"
+              >terms &amp; conditions.</a
+            >.
           </label>
         </div>
         <a

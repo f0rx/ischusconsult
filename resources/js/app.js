@@ -10,6 +10,11 @@ require('alpinejs');
 
 import Vue from 'vue';
 
+import VueModal from '@kouts/vue-modal';
+import '@kouts/vue-modal/dist/vue-modal.css';
+
+Vue.component('VModal', VueModal);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
