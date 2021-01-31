@@ -9,7 +9,7 @@
     <meta name="keywords" content="resume,CV,portfolio,Resume,cv,job,application,job-application" />
     <meta name="author" content="Brendan Ejike (github.com@@f0rx)" />
 
-    <link rel="shortcut icon" href="{{ asset('images/logo2.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
     <title>{{ config('app.name') }}</title>
 
