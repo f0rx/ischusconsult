@@ -23,7 +23,7 @@
 
       <div class="col-sm-6 col-md-6">
         <div class="form-group">
-          <div class="step-label">Your preferred job option</div>
+          <div class="step-label">Your Preferred Job Option</div>
           <select
             id="preferred_role"
             name="preferred_role"
