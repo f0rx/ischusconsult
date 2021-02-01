@@ -12,6 +12,9 @@ use App\Http\Controllers\FileDocumentController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Mail\JobApplicationCreated;
+use App\Models\JobApplication;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::domain('recruit.' . config('app.site_url'))
@@ -20,6 +23,13 @@ Route::domain('recruit.' . config('app.site_url'))
         // Route::get('/', function () {
         //     return redirect()->route('application.hello');
         // })->name('hello');
+
+        // Route::get('/mail/mailable', function () {
+        //     $jobApplication = JobApplication::firstOrFail();
+
+        //     Mail::to($jobApplication->email)
+        //         ->send(new JobApplicationCreated($jobApplication));
+        // });
 
         Route::get('/', [JobApplicationController::class, 'create'])
             ->middleware('guest')

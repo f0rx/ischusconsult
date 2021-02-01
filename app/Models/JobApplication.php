@@ -67,6 +67,16 @@ class JobApplication extends Model
      *
      * @return string
      */
+    public function getNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
+
+    /**
+     * Get the Applicant's full name.
+     *
+     * @return string
+     */
     public function getFullNameAttribute()
     {
         return "{$this->first_name} {$this->last_name}";

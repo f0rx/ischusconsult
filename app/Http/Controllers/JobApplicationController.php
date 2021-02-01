@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\JobApplicationRequest;
+use App\Mail\JobApplicationCreated;
 use App\Models\FileDocument;
 use App\Models\JobApplication;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Str;
@@ -42,7 +44,7 @@ class JobApplicationController extends Controller
      * @param  \App\Http\Requests\JobApplicationRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JobApplicationRequest $request)
     {
         // Generate an application ID
         $application_id = Str::upper(Str::random(11));
@@ -75,6 +77,15 @@ class JobApplicationController extends Controller
 
         if ($request->documents != null && count($request->documents) > 0) {
             $this->uploadDocuments($request, $jobApplication);
+        }
+
+        // Send out Mailable
+        if (config('app.env') == 'production') {
+            Mail::to($jobApplication)
+                ->send(new JobApplicationCreated($jobApplication));
+        } else {
+            Mail::mailer('log')->to($jobApplication)
+                ->send(new JobApplicationCreated($jobApplication));
         }
 
         session(['success-position' => 'top']);
