@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
-use Spatie\Permission\Models\Role;
 use Illuminate\Support\Str;
 
 class JobApplicationController extends Controller
@@ -20,7 +19,7 @@ class JobApplicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $applications = JobApplication::with('documents')->get();
         // $request->session()->flash('error-title', 'User account created!');

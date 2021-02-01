@@ -3,7 +3,7 @@
     "/js/admin.js": "/js/admin.js",
     "/js/recruit.js": "/js/recruit.js",
     "/js/preview.js": "/js/preview.js",
+    "/css/preview.css": "/css/preview.css",
     "/css/recruit.css": "/css/recruit.css",
-    "/css/app.css": "/css/app.css",
-    "/css/preview.css": "/css/preview.css"
+    "/css/app.css": "/css/app.css"
 }
