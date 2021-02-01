@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="luna-signup-left">
-        <a href="https://ischusconsults.com">
+        <a :href="appUrl">
           <img
             class="luna-signup-logo img-responsive"
             src="/images/logo.png"
@@ -85,6 +85,7 @@
 <script>
 export default {
   props: [
+    "appUrl",
     "action",
     "csrfToken",
     "session",

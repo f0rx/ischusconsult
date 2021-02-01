@@ -68,7 +68,12 @@
                                     @foreach ($applications as $application)
                                         <tr>
                                             <td>{{ $application->application_id }}</td>
-                                            <td>{{ $application->first_name }} {{ $application->last_name }}</td>
+                                            <td>
+                                                <a
+                                                    href="{{ route('application.show', ['application' => $application]) }}">{{ $application->first_name }}
+                                                    {{ $application->last_name }}
+                                                </a>
+                                            </td>
                                             <td>{{ $application->address }}</td>
                                             <td>{{ $application->age ?? \Carbon\Carbon::parse($application->dob)->age }}
                                                 years</td>
@@ -77,12 +82,9 @@
                                             <td>{{ $application->total_years_of_xp }}</td>
                                             <td>{{ Str::title($application->recent_job_title) }}</td>
                                             <td>
-                                                @foreach ($application->documents as $doc)
-                                                    @if (Str::contains($doc->full_path, ['cv', 'CV']))
-                                                        <a href="{{ asset('storage/' . $doc->full_path) }}">
-                                                            Download CV </a>
-                                                    @endif
-                                                @endforeach
+                                                <a
+                                                    href="{{ $application->cv != null ? asset('storage/' . $application->cv->full_path) : '#' }}">
+                                                    Download CV </a>
                                             </td>
                                             <td>
                                                 <supporting-documents anchor-text="View all documents"

@@ -6,6 +6,7 @@ use App\Models\FileDocument;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class JobApplication extends Model
 {
@@ -59,5 +60,25 @@ class JobApplication extends Model
     public function documents()
     {
         return $this->hasMany(FileDocument::class);
+    }
+
+    /**
+     * Get the Applicant's full name.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
+
+    /**
+     * Get the Applicant's CV.
+     *
+     * @return string
+     */
+    public function getCVAttribute()
+    {
+        return $this->documents()->where('name', 'like', 'CV%')->first();
     }
 }

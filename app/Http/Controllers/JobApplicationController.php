@@ -89,7 +89,7 @@ class JobApplicationController extends Controller
      */
     public function show(JobApplication $application)
     {
-        return view('recruit.index', compact('application'));
+        return view('recruit.show', compact('application'));
     }
 
     /**

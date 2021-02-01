@@ -29,6 +29,10 @@ Route::domain('recruit.' . config('app.site_url'))
             ->middleware('guest')
             ->name('store');
 
+        Route::get('/{application}/preview', [JobApplicationController::class, 'show'])
+            ->middleware('guest')
+            ->name('show');
+
         Route::get('/{application}/edit', [JobApplicationController::class, 'edit'])
             ->middleware(['guest'])
             ->name('edit');
@@ -53,10 +57,6 @@ Route::domain('admin.' . config('app.site_url'))
             Route::get('/all', [JobApplicationController::class, 'index'])
                 ->middleware('auth')
                 ->name('index');
-
-            Route::get('/{application}', [JobApplicationController::class, 'show'])
-                ->middleware('auth')
-                ->name('show');
 
             Route::get('/{application}/edit', [JobApplicationController::class, 'edit'])
                 ->middleware(['auth'])

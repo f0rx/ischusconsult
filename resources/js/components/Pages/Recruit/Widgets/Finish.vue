@@ -85,7 +85,7 @@
 
     <div class="row fadeTop">
       <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
-        Your preferred job option
+        Your Preferred Job Option
       </div>
       <div
         class="col-md-9 col-sm-6 col-xs-12 confirm-text preferred_role"

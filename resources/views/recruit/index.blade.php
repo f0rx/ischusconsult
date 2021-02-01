@@ -39,7 +39,7 @@
         </toast-error>
 
         <!-- Entry point -->
-        <recruit-page
+        <recruit-page app-url="{{ config('app.url') }}"
             action="{{ $application == null ? route('application.store') : route('application.update', ['application' => $application]) }}"
             is-updating="{{ $application != null }}" csrf-token="{{ csrf_token() }}"
             session="{{ \Session::get('errors') }}"
