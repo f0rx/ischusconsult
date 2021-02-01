@@ -79,12 +79,16 @@ class JobApplicationController extends Controller
         }
 
         // Send out Mailable
-        if (config('app.env') == 'production') {
-            Mail::to($jobApplication)
-                ->send(new JobApplicationCreated($jobApplication));
-        } else {
-            Mail::mailer('log')->to($jobApplication)
-                ->send(new JobApplicationCreated($jobApplication));
+        try {
+            if (config('app.env') == 'production') {
+                Mail::to($jobApplication)
+                    ->send(new JobApplicationCreated($jobApplication));
+            } else {
+                Mail::mailer('log')->to($jobApplication)
+                    ->send(new JobApplicationCreated($jobApplication));
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
         }
 
         session(['success-position' => 'top']);
