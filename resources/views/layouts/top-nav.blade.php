@@ -5,14 +5,12 @@
                 <i class="fa fa-bars"></i>
             </a>
         </div>
+
         <div class="logo-box">
             <a href="{{ route('admin.dashboard') }}" class="logo-text"
                 style="font-size: 17px"><span>{{ config('app.name') }}</span></a>
         </div><!-- Logo Box -->
-        <div class="search-button">
-            <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i
-                    class="fa fa-search"></i></a>
-        </div>
+
         <div class="topmenu-outer">
             <div class="top-menu">
                 <ul class="nav navbar-nav navbar-left">
@@ -45,6 +43,7 @@
                             </li>
                         </ul>
                     </li>
+
                     <li>
                         <a href="#" class="log-out waves-effect waves-button waves-classic" style="padding: 0px 0px">
                             <form method="POST" action="{{ route('admin.logout') }}">
