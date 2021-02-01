@@ -58,10 +58,12 @@
         @endauth
 
         <toast-success title="{{ session('success-title') ?? ($successTitle ?? '') }}"
-            body="{{ session('success-body') ?? ($successBody ?? '') }}">
+            body="{{ session('success-body') ?? ($successBody ?? '') }}"
+            position="{{ session('success-position') ?? ($successPosition ?? '') }}">
         </toast-success>
         <toast-error title="{{ session('error-title') ?? ($errorTitle ?? '') }}"
-            body="{{ session('error-body') ?? ($errorBody ?? '') }}">
+            body="{{ session('error-body') ?? ($errorBody ?? '') }}"
+            position="{{ session('error-position') ?? ($errorPosition ?? '') }}">
         </toast-error>
 
         <div class="page-inner">

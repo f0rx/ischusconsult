@@ -39,14 +39,24 @@
         </toast-error>
 
         <!-- Entry point -->
-        <recruit-page action="{{ route('application.store') }}" csrf-token="{{ csrf_token() }}"
-            session="{{ \Session::get('errors') }}" first-name="{{ old('first_name') }}"
-            last-name="{{ old('last_name') }}" email="{{ old('email') }}" phone="{{ old('phone') }}"
-            marital-status="{{ old('marital_status') }}" age="{{ old('age') }}" address="{{ old('address') }}"
-            city="{{ old('city') }}" state="{{ old('state') }}" gender="{{ old('gender') }}"
-            specialization="{{ old('specialization') }}" preferred-role="{{ old('preferred_role') }}"
-            recent-job-title="{{ old('recent_job_title') }}" total-years-of-xp="{{ old('total_years_of_xp') }}"
-            summary="{{ old('summary') }}">
+        <recruit-page
+            action="{{ $application == null ? route('application.store') : route('application.update', ['application' => $application]) }}"
+            is-updating="{{ $application != null }}" csrf-token="{{ csrf_token() }}"
+            session="{{ \Session::get('errors') }}"
+            first-name="{{ old('first_name') ?? ($application->first_name ?? null) }}"
+            last-name="{{ old('last_name') ?? ($application->last_name ?? null) }}"
+            email="{{ old('email') ?? ($application->email ?? null) }}"
+            phone="{{ old('phone') ?? ($application->phone ?? null) }}"
+            marital-status="{{ old('marital_status') ?? ($application->marital_status ?? null) }}"
+            age="{{ old('age') ?? ($application->age ?? null) }}"
+            address="{{ old('address') ?? ($application->address ?? null) }}"
+            city="{{ old('city') ?? ($application->city ?? null) }}"
+            state="{{ old('state') ?? ($application->state ?? null) }}"
+            gender="{{ old('gender') ?? ($application->gender ?? null) }}"
+            preferred-role="{{ old('preferred_role') ?? ($application->preferred_role ?? null) }}"
+            recent-job-title="{{ old('recent_job_title') ?? ($application->recent_job_title ?? null) }}"
+            total-years-of-xp="{{ old('total_years_of_xp') ?? ($application->total_years_of_xp ?? null) }}"
+            summary="{{ old('summary') ?? ($application->summary ?? null) }}">
         </recruit-page>
 
     </div>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\JobApplicationRequest;
+use App\Models\FileDocument;
 use App\Models\JobApplication;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
@@ -31,7 +33,7 @@ class JobApplicationController extends Controller
      */
     public function create()
     {
-        return view('recruit.index');
+        return view('recruit.index', ['application' => null]);
     }
 
     /**
@@ -40,12 +42,12 @@ class JobApplicationController extends Controller
      * @param  \App\Http\Requests\JobApplicationRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(JobApplicationRequest $request)
+    public function store(Request $request)
     {
         // Generate an application ID
         $application_id = Str::upper(Str::random(11));
 
-        // $jobApplication = JobApplication::whereApplicationId('IGTPJHVKXWS')->firstOrFail();
+        // $jobApplication = JobApplication::firstOrFail();
 
         // Store a new application
         $jobApplication = JobApplication::create([
@@ -72,7 +74,7 @@ class JobApplicationController extends Controller
         }
 
         if ($request->documents != null && count($request->documents) > 0) {
-            // $this->uploadDocuments($request, $jobApplication);
+            $this->uploadDocuments($request, $jobApplication);
         }
 
         session(['success-position' => 'top']);
@@ -110,7 +112,44 @@ class JobApplicationController extends Controller
      */
     public function update(JobApplicationRequest $request, JobApplication $application)
     {
-        dd('update item here and flash session');
+        $application->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'dob' => $request->dob,
+            'age' => $request->age,
+            'marital_status' => $request->marital_status,
+            'address' => $request->address,
+            'city' => $request->city,
+            'state' => $request->state,
+            'gender' => $request->gender,
+            'preferred_role' => $request->preferred_role,
+            'recent_job_title' => $request->recent_job_title,
+            'total_years_of_xp' => $request->total_years_of_xp,
+            'summary' => $request->summary,
+        ]);
+
+        if ($request->cv != null) {
+            try {
+                // We first delete the CV containing folder, whether it exists or not
+                Storage::deleteDirectory($application->application_id . '/' . 'CV');
+                // FileDocument::whereApplicationId($application->id)->firstOrFail()->delete();
+            } catch (\Throwable $th) {
+                // We catch this exception if any errors
+                // occurs in live server
+            }
+
+            // then upload new CV
+            $this->uploadCV($request, $application);
+        }
+
+        if ($request->documents != null && count($request->documents) > 0) {
+            $this->uploadDocuments($request, $application);
+        }
+
+        session(['success-position' => 'top']);
+        return redirect()->route('application./')->with('success-title', 'Application updated!');
     }
 
     /**
@@ -121,8 +160,9 @@ class JobApplicationController extends Controller
      */
     public function delete(JobApplication $application)
     {
-        dump('delete item here and flash session ==> ');
-        dd($application);
+        $application->delete();
+        session(['success-position' => 'top']);
+        return redirect()->back()->with('success-title', 'Moved to recycle bin!');
     }
 
     /**
@@ -133,7 +173,15 @@ class JobApplicationController extends Controller
      */
     public function destroy(JobApplication $application)
     {
-        dd('DESTROY item here and flash session');
+        try {
+            $application->forceDelete();
+            Storage::deleteDirectory($application->application_id);
+        } catch (\Throwable $th) {
+            // We catch this exception if any errors
+            // occurs in live server
+        }
+        session(['success-position' => 'top']);
+        return redirect()->back()->with('success-title', 'Application deleted from records!');
     }
 
     private function uploadCV(Request $request, JobApplication $jobApplication)
@@ -147,12 +195,12 @@ class JobApplicationController extends Controller
 
         // Store uploaded CV document (set visibility = PUBLIC)
         $path = $cv->storePubliclyAs(
-            'public' . '/' . $application_id . '/' . 'CV',
+            $application_id . '/' . 'CV', // This is the root folder path
             $computedCVFileName . $computedCVFileExtension,
         );
 
         // Update file visibility
-        Storage::setVisibility($path, 'public');
+        $visibility = Storage::setVisibility($path, 'public');
 
         // Populate database
         $jobApplication->documents()->create([
@@ -161,11 +209,56 @@ class JobApplicationController extends Controller
             'full_path' => $computedCVFilePath,
             'application_id' => $application_id,
             'size' => Storage::size($path),
+            'is_public' => $visibility
         ]);
+
+        try {
+            // For some unknown reason, i couldn't create the 'application_id' field above
+            // so i'll just update it here
+            $doc = FileDocument::whereName($computedCVFileName)->firstOrFail();
+            $doc->application_id = $application_id;
+            $doc->save();
+        } catch (ModelNotFoundException $th) {
+            //throw $th;
+        }
     }
 
     private function uploadDocuments(Request $request, JobApplication $jobApplication)
     {
-        dd($request->documents);
+        foreach ($request->documents as $key => $document) {
+            // Get uploaded CV document
+            $application_id = $jobApplication->application_id;
+            $computedDocumentName = $document->getClientOriginalName(); // Name here already contains extension
+            $computedDocumentExtension = '.' . $document->getClientOriginalExtension();
+            $computedDocumentPath = $application_id . '/' . $computedDocumentName;
+
+            // Store uploaded CV document (set visibility = PUBLIC)
+            $path = $document->storePubliclyAs(
+                $application_id, // This is the root folder path
+                $computedDocumentName,
+            );
+
+            // Update file visibility
+            $visibility = Storage::setVisibility($path, 'public');
+
+            // Populate database
+            $jobApplication->documents()->create([
+                'name' => $computedDocumentName,
+                'extension' => $computedDocumentExtension,
+                'full_path' => $computedDocumentPath,
+                'size' => Storage::size($path),
+                'is_public' => $visibility
+            ]);
+
+            try {
+                // For some unknown reason, i couldn't create the 'application_id' field above
+                // so i'll just update it here
+                $doc = FileDocument::whereName($computedDocumentName)->firstOrFail();
+                $doc->application_id = $application_id;
+                $doc->save();
+            } catch (ModelNotFoundException $th) {
+                //throw $th;
+            }
+        }
     }
 }

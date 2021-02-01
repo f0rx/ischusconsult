@@ -16,8 +16,8 @@
         </div>
       </div>
 
-      <v-modal v-model="modal.isOpen" title="My first modal">
-        <p>Modal content goes here...</p>
+      <v-modal v-model="modal.isOpen" :title="modal.title">
+        <p v-text="modal.html"></p>
       </v-modal>
 
       <div class="luna-signup-right">
@@ -34,6 +34,13 @@
             ref="signupForm"
             enctype="multipart/form-data"
           >
+            <input
+              type="hidden"
+              name="_method"
+              value="PUT"
+              v-if="isFormUpdating"
+            />
+
             <input type="hidden" name="_token" v-model="csrfToken" />
 
             <div class="luna-steps">
@@ -81,6 +88,7 @@ export default {
     "action",
     "csrfToken",
     "session",
+    "isUpdating",
 
     "firstName",
     "lastName",
@@ -101,10 +109,17 @@ export default {
     return {
       modal: {
         isOpen: false,
-        title: null,
-        html: null,
+        title: `Terms and Conditions`,
+        html: `I certify that the statements made in this application, on my Resume
+          and any other attachments, and any other information that I provide to
+          Ischus Consult is true and correct to the best of my knowledge. I
+          further understand that any misinformation or falsification of
+          information on this application or any other document including, but
+          not limited to the authorisation for background investigation will be
+          cause for denial or termination of employment.`,
       },
       errors: [],
+      isFormUpdating: false,
       form: {
         first_name: "",
         last_name: "",
@@ -168,7 +183,14 @@ export default {
     this.form.agreement =
       typeof this.agreement != "undefined" ? this.agreement : null;
 
+    // Check if user is updating response (form)
+    this.isFormUpdating = this.isUpdating == 1;
+
+    // populate error fields
     let validation = JSON.parse(this.session == "" ? null : this.session);
+
+    console.log(this.session);
+    console.log(validation);
 
     if (validation != null) {
       // Convert the incoming Laravel error object to Javascript Array

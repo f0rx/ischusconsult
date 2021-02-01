@@ -62,7 +62,8 @@
             name="phone"
             autocomplete="off"
             spellcheck="false"
-            @input="$parent.form.phone = $event.target.value.trim()"
+            :value="$parent.form.phone"
+            @keypress="$parent.form.phone = $event.target.value"
           />
           <div class="help-block">
             Please enter a valid 11 digit Nigeria phone number without country

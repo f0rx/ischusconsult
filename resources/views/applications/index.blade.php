@@ -78,13 +78,14 @@
                                             <td>{{ Str::title($application->recent_job_title) }}</td>
                                             <td>
                                                 @foreach ($application->documents as $doc)
-
-                                                    <a href="{{ asset('storage/' . $doc->full_path) }}">
-                                                        Download CV </a>
+                                                    @if (Str::contains($doc->full_path, ['cv', 'CV']))
+                                                        <a href="{{ asset('storage/' . $doc->full_path) }}">
+                                                            Download CV </a>
+                                                    @endif
                                                 @endforeach
                                             </td>
                                             <td>
-                                                <supporting-documents anchor-text="View other supporting documents"
+                                                <supporting-documents anchor-text="View all documents"
                                                     incoming="{{ $application->documents }}">
                                                 </supporting-documents>
                                             </td>
@@ -99,7 +100,7 @@
                                                     @role("super-admin|admin")
                                                     <a type="button" class="btn btn-danger btn-block">
                                                         <form method="POST"
-                                                            action="{{ route('admin.application.delete', ['application' => $application]) }}">
+                                                            action="{{ route('admin.application.destroy', ['application' => $application]) }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <span class="icon icon-trash" onclick="event.preventDefault();

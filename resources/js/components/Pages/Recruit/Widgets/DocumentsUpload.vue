@@ -14,7 +14,7 @@
         />
         <error-widget
           :text="cv.error"
-          v-if="cv.hasError && typeof document.error != 'undefined'"
+          v-if="cv.hasError && typeof cv.error != 'undefined'"
         ></error-widget>
       </div>
     </div>
@@ -34,7 +34,7 @@
         />
         <error-widget
           :text="documents.error"
-          v-if="documents.hasError && typeof document.error != 'undefined'"
+          v-if="documents.hasError && typeof documents.error != 'undefined'"
         ></error-widget>
       </div>
     </div>
