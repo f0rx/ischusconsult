@@ -53,7 +53,7 @@
             <!--Block content-->
             <div class="block-content">
                 <div class="block-teaser block-background-image large overlay"
-                    data-background="{{ asset('images/landscape.jpg') }}">
+                    data-background="{{ asset('images/landscape.png') }}">
                     <!--Container-->
                     <div class="container">
                         <!--Row-->

@@ -3,7 +3,7 @@
     <h2 class="step-title">Professional Details</h2>
 
     <div class="row">
-      <div class="col-sm-6 col-md-6">
+      <div class="col-sm-12 col-md-12">
         <div class="form-group">
           <label class="formLabel" for="recent_job_title"
             >Most Recent Job Title</label
@@ -20,8 +20,10 @@
           />
         </div>
       </div>
+    </div>
 
-      <div class="col-sm-6 col-md-6">
+    <div class="row">
+      <div class="col-sm-8 col-md-8" v-show="!isOtherVisible">
         <div class="form-group">
           <div class="step-label">Your Preferred Job Option</div>
           <select
@@ -39,6 +41,38 @@
           </select>
         </div>
       </div>
+
+      <div class="col-sm-8 col-md-8" v-show="isOtherVisible">
+        <div class="form-group">
+          <label class="formLabel" for="preferred_role">
+            Your Preferred Job Option</label
+          >
+          <input
+            type="text"
+            class="formInput"
+            required
+            id="preferred_role"
+            name="preferred_role"
+            autocomplete="off"
+            spellcheck="false"
+            v-model="$parent.form.preferred_role"
+          />
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-4">
+        <div class="form-group">
+          <label class="checkbox-inline agreement">
+            <input
+              id="other-box"
+              name="other_box"
+              type="checkbox"
+              @input="isOtherVisible = !isOtherVisible"
+            /> Other Job Option 
+          </label>
+        </div>
+      </div>
+
     </div>
 
     <div class="row">
@@ -78,6 +112,7 @@
 export default {
   data() {
     return {
+      isOtherVisible: false,
       roles: [
         "PETROLEUM ENGINEER (RESERVOIR, P.TECH, PETROPHYSICS)",
         "GEOSCIENCES (GEOLOGIST, SEISMOLOGIST)",
