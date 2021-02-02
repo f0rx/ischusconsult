@@ -40,6 +40,8 @@ class JobApplicationFactory extends Factory
             'gender' => $this->faker->randomElement($genders),
             'dob' => $this->faker->dateTimeBetween('-40 years', '-20 years'),
             'preferred_role' => $this->faker->jobTitle,
+            'preferred_role_2' => $this->faker->jobTitle,
+            'preferred_role_3' => $this->faker->jobTitle,
             'recent_job_title' => $this->faker->jobTitle,
             'total_years_of_xp' => $this->faker->numberBetween(1, 9),
             'summary' => $this->faker->paragraphs(5, true),

@@ -102,6 +102,8 @@ export default {
     "state",
     "gender",
     "preferredRole",
+    "preferredRole2",
+    "preferredRole3",
     "recentJobTitle",
     "totalYearsOfXp",
     "summary",
@@ -134,6 +136,8 @@ export default {
         dob: null,
         age: null,
         preferred_role: "",
+        preferred_role_2: "",
+        preferred_role_3: "",
         recent_job_title: "",
         total_years_of_xp: "",
         summary: "",
@@ -174,7 +178,11 @@ export default {
     this.form.dob = typeof this.dob != "undefined" ? this.dob : null;
     this.form.age = typeof this.age != "undefined" ? this.age : null;
     this.form.preferred_role =
-      typeof this.preferred_role != "undefined" ? this.preferred_role : null;
+      typeof this.preferredRole != "undefined" ? this.preferredRole : null;
+    this.form.preferred_role_2 =
+      typeof this.preferredRole2 != "undefined" ? this.preferredRole2 : null;
+    this.form.preferred_role_3 =
+      typeof this.preferredRole3 != "undefined" ? this.preferredRole3 : null;
     this.form.recent_job_title =
       typeof this.recentJobTitle != "undefined" ? this.recentJobTitle : null;
     this.form.total_years_of_xp =

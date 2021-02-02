@@ -85,16 +85,34 @@
 
     <div class="row fadeTop">
       <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
-        Your Preferred Job Option
+        Your Preferred Role
       </div>
       <div
         class="col-md-9 col-sm-6 col-xs-12 confirm-text preferred_role"
       ></div>
     </div>
+    
+    <div class="row fadeTop" v-show="$parent.form.preferred_role_2 != null">
+      <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
+        Your Preferred Role 2
+      </div>
+      <div
+        class="col-md-9 col-sm-6 col-xs-12 confirm-text preferred_role_2"
+      ></div>
+    </div>
+    
+    <div class="row fadeTop" v-show="$parent.form.preferred_role_3 != null">
+      <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
+        Your Preferred Role 3
+      </div>
+      <div
+        class="col-md-9 col-sm-6 col-xs-12 confirm-text preferred_role_3"
+      ></div>
+    </div>
 
     <div class="row fadeTop">
       <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">
-        Most Recent Job Title
+        Most Recent Role
       </div>
       <div
         class="col-md-9 col-sm-6 col-xs-12 confirm-text recent_job_title"

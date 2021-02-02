@@ -41,9 +41,9 @@
                                         <th>Address</th>
                                         <th>Age</th>
                                         <th>City, State</th>
-                                        <th>Preferred Role</th>
+                                        <th>Preferred Roles</th>
                                         <th>Years of Experience</th>
-                                        <th>Most Recent Job Title</th>
+                                        <th>Most Recent Role</th>
                                         <th>CV (Click to Download)</th>
                                         <th>Supporting Documents</th>
                                         <th></th>
@@ -56,9 +56,9 @@
                                         <th>Address</th>
                                         <th>Age</th>
                                         <th>City, State</th>
-                                        <th>Preferred Role</th>
+                                        <th>Preferred Roles</th>
                                         <th>Years of Experience</th>
-                                        <th>Most Recent Job Title</th>
+                                        <th>Most Recent Role</th>
                                         <th>CV (Click to Download)</th>
                                         <th>Supporting Documents</th>
                                         <th></th>
@@ -78,13 +78,25 @@
                                             <td>{{ $application->age ?? \Carbon\Carbon::parse($application->dob)->age }}
                                                 years</td>
                                             <td>{{ $application->city }}, {{ $application->state }}</td>
-                                            <td>{{ $application->preferred_role }}</td>
+                                            <td>
+                                            <ul>
+                                            <li> {{ $application->preferred_role }} </li>
+                                            <li> {{ $application->preferred_role_2 }} </li>
+                                            <li> {{ $application->preferred_role_3 }} </li>
+                                            
+                                            </ul>
+                                            </td>
                                             <td>{{ $application->total_years_of_xp }}</td>
                                             <td>{{ Str::title($application->recent_job_title) }}</td>
                                             <td>
-                                                <a
-                                                    href="{{ $application->cv != null ? asset('storage/' . $application->cv->full_path) : '#' }}">
+
+@if($application->cv != null)                                                <a
+                                                    href="{{ $application->cv = null ? asset('storage/' . $application->cv->full_path) : '#' }}">
                                                     Download CV </a>
+                                                    @else
+                                                    
+    No CV uploaded
+                                                    @endif
                                             </td>
                                             <td>
                                                 <supporting-documents anchor-text="View all documents"

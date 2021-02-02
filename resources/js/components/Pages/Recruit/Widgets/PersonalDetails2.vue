@@ -93,6 +93,17 @@
         </div>
       </div>
     </div>
+    
+    <div class="form-group">
+      <div class="step-label">About Me (Optional)</div>
+      <textarea
+        class="formInput"
+        name="summary"
+        id="summary"
+        v-model="$parent.form.summary"
+        placeholder="e.g Passionate science teacher with 8+ years of experience and a track record of.."
+      ></textarea>
+    </div>
   </div>
 </template>
 

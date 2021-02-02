@@ -30,6 +30,8 @@ class JobApplication extends Model
         'state',
         'gender',
         'preferred_role',
+        'preferred_role_2',
+        'preferred_role_3',
         'recent_job_title',
         'total_years_of_xp',
         'summary',

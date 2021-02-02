@@ -31,6 +31,8 @@ class CreateJobApplicationsTable extends Migration
             $table->integer('age')->nullable();
 
             $table->string('preferred_role')->nullable();
+            $table->string('preferred_role_2')->nullable();
+            $table->string('preferred_role_3')->nullable();
             $table->string('recent_job_title')->nullable();
             $table->string('total_years_of_xp')->nullable();
             $table->longText('summary')->nullable();

@@ -6,7 +6,7 @@
       <div class="col-sm-12 col-md-12">
         <div class="form-group">
           <label class="formLabel" for="recent_job_title"
-            >Most Recent Job Title</label
+            >Most Recent Role</label
           >
           <input
             type="text"
@@ -21,6 +21,8 @@
         </div>
       </div>
     </div>
+
+
 
     <div class="row">
       <div class="col-sm-8 col-md-8" v-show="!isOtherVisible">
@@ -75,6 +77,109 @@
 
     </div>
 
+
+			 <div class="row">
+      <div class="col-sm-8 col-md-8" v-show="!isOther2Visible">
+        <div class="form-group">
+          <div class="step-label">Your Preferred Role Option 2</div>
+          <select
+            id="preferred_role_2"
+            name="preferred_role_2"
+            class="selectpicker form-control"
+            v-model="$parent.form.preferred_role_2"
+          >
+            <option value="">Select an option</option>
+            <option v-for="(item, i) in roles" :key="i" :value="item">
+              {{ item }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm-8 col-md-8" v-show="isOther2Visible">
+        <div class="form-group">
+          <label class="formLabel" for="preferred_role_2">
+            Your Preferred Role Option 2</label
+          >
+          <input
+            type="text"
+            class="formInput"
+            id="preferred_role_2"
+            name="preferred_role_2"
+            autocomplete="off"
+            spellcheck="false"
+            v-model="$parent.form.preferred_role_2"
+          />
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-4">
+        <div class="form-group">
+          <label class="checkbox-inline agreement">
+            <input
+              id="other-box-2"
+              name="other_box_2"
+              type="checkbox"
+              @input="isOther2Visible = !isOther2Visible"
+            /> Other Job Option
+          </label>
+        </div>
+      </div>
+
+    </div>
+    
+    
+    <div class="row">
+      <div class="col-sm-8 col-md-8" v-show="!isOther3Visible">
+        <div class="form-group">
+          <div class="step-label">Your Preferred Role Option 3</div>
+          <select
+            id="preferred_role_3"
+            name="preferred_role_3"
+            class="selectpicker form-control"
+            v-model="$parent.form.preferred_role_3"
+          >
+            <option value="">Select an option</option>
+            <option v-for="(item, i) in roles" :key="i" :value="item">
+              {{ item }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm-8 col-md-8" v-show="isOther3Visible">
+        <div class="form-group">
+          <label class="formLabel" for="preferred_role_3">
+            Your Preferred Role Option 3</label
+          >
+          <input
+            type="text"
+            class="formInput"
+            id="preferred_role_3"
+            name="preferred_role_3"
+            autocomplete="off"
+            spellcheck="false"
+            v-model="$parent.form.preferred_role_3"
+          />
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-4">
+        <div class="form-group">
+          <label class="checkbox-inline agreement">
+            <input
+              id="other-box-3"
+              name="other_box_3"
+              type="checkbox"
+              @input="isOther3Visible = !isOther3Visible"
+            /> Other Job Option
+          </label>
+        </div>
+      </div>
+
+    </div>
+
+
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -94,17 +199,7 @@
         </div>
       </div>
     </div>
-
-    <div class="form-group">
-      <div class="step-label">About Me (Optional)</div>
-      <textarea
-        class="formInput"
-        name="summary"
-        id="summary"
-        v-model="$parent.form.summary"
-        placeholder="e.g Passionate science teacher with 8+ years of experience and a track record of.."
-      ></textarea>
-    </div>
+    
   </div>
 </template>
 
@@ -113,6 +208,8 @@ export default {
   data() {
     return {
       isOtherVisible: false,
+      isOther2Visible: false,
+      isOther3Visible: false,
       roles: [
         "PETROLEUM ENGINEER (RESERVOIR, P.TECH, PETROPHYSICS)",
         "GEOSCIENCES (GEOLOGIST, SEISMOLOGIST)",
