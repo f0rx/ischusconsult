@@ -47,7 +47,7 @@
       <div class="col-sm-8 col-md-8" v-show="isOtherVisible">
         <div class="form-group">
           <label class="formLabel" for="preferred_role">
-            Your Preferred Job Option</label
+            Your Preferred Role Option 1</label
           >
           <input
             type="text"
@@ -70,15 +70,14 @@
               name="other_box"
               type="checkbox"
               @input="isOtherVisible = !isOtherVisible"
-            /> Other Job Option 
+            /> Other Role 
           </label>
         </div>
       </div>
 
     </div>
 
-
-			 <div class="row">
+    <div class="row">
       <div class="col-sm-8 col-md-8" v-show="!isOther2Visible">
         <div class="form-group">
           <div class="step-label">Your Preferred Role Option 2</div>
@@ -121,7 +120,7 @@
               name="other_box_2"
               type="checkbox"
               @input="isOther2Visible = !isOther2Visible"
-            /> Other Job Option
+            /> Other Role
           </label>
         </div>
       </div>
@@ -172,7 +171,7 @@
               name="other_box_3"
               type="checkbox"
               @input="isOther3Visible = !isOther3Visible"
-            /> Other Job Option
+            /> Other Role
           </label>
         </div>
       </div>
