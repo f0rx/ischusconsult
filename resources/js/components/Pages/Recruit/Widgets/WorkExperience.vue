@@ -27,7 +27,7 @@
     <div class="row">
       <div class="col-sm-8 col-md-8" v-show="!isOtherVisible">
         <div class="form-group">
-          <div class="step-label">Your Preferred Job Option</div>
+          <div class="step-label">Your Preferred Role Option 1</div>
           <select
             id="preferred_role"
             name="preferred_role"
